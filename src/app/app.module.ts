@@ -16,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import { DocumentviewComponent } from './components/documentview/documentview.component';
 import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatIconModule,
     MatCommonModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

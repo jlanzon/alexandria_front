@@ -1,4 +1,17 @@
+.searchbar{
+  margin-left: 15vw;
+  margin-right: 15vw;
 
-.test{
-    width: 60vw;
+}
+.text{
+  text-align: center;
+}
+
+.search{
+  align-content: center;
+  margin-top: 20%;
+}
+
+.logo{
+  align-items: center;
 }
