@@ -13,6 +13,9 @@ import { InfoComponent } from './components/info/info.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCommonModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
+import { DocumentviewComponent } from './components/documentview/documentview.component';
+import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import {MatInputModule} from '@angular/material/input';
     SearchComponent,
     HomeComponent,
     InfoComponent,
+    DocumentviewComponent,
+    DocumentinfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import {MatInputModule} from '@angular/material/input';
     MatSidenavModule,
     MatIconModule,
     MatCommonModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

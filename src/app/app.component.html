@@ -1,10 +1,10 @@
-<mat-toolbar>
-  <button type="button" mat-button (click)="drawer.toggle()">
-    <mat-icon aria-hidden="false" aria-label="Menu Icon">menu</mat-icon>
-  </button>
-  <h1>{{ title }}</h1>
-</mat-toolbar>
 <mat-drawer-container class="example-container" autosize>
+  <mat-toolbar>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon aria-hidden="false" aria-label="Menu Icon">menu</mat-icon>
+    </button>
+    <h1>{{ title }}</h1>
+  </mat-toolbar>
   <mat-drawer #drawer class="example-sidenav" mode="over">
     <div class="container">
       <div class="row">
@@ -15,6 +15,17 @@
       </div>
       <div class="row">
         <button  mat-raised-button [routerLink]="['/info']" routerLinkActive="router-link-active">Info</button>
+      </div>
+      <div class="text">
+        <p>
+          Below are test views
+        </p>
+      </div>
+      <div class="row">
+        <button  mat-raised-button [routerLink]="['/docview']" routerLinkActive="router-link-active">Document Viewer</button>
+      </div>
+      <div class="row">
+        <button  mat-raised-button [routerLink]="['/docinfo']" routerLinkActive="router-link-active">Document Information</button>
       </div>
     </div>
   </mat-drawer>

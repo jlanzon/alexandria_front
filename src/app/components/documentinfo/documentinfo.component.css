@@ -1,0 +1,19 @@
+.document{
+border-style: solid;
+border-width: 5px;
+border-radius: 10px;
+width: 30vw;
+left: 10%;
+color: red;
+}
+.title{
+color: royalblue;
+}
+
+.metadata{
+color: salmon;
+}
+
+.contact{
+color: seagreen;
+}
