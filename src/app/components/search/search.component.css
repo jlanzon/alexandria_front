@@ -1,7 +1,11 @@
 .searchbar{
+  margin-top: auto;
   margin-left: 15vw;
   margin-right: 15vw;
+}
 
+.searchbartext{
+  border-radius: 2rem;
 }
 .text{
   text-align: center;
@@ -9,7 +13,7 @@
 
 .search{
   align-content: center;
-  margin-top: 20%;
+
 }
 
 .logo{
