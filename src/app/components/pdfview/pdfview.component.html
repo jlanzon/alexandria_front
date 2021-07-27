@@ -1,0 +1,40 @@
+  <mat-drawer-container class="example-container" autosize>
+    <mat-toolbar>
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false" aria-label="Menu Icon">menu</mat-icon>
+      </button>
+      <h1>{{DocumentTitle}}</h1>
+    </mat-toolbar>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+      <div class="container">
+        <div class="row">
+          <button  mat-raised-button>Somthing</button>
+        </div>
+        <div class="row">
+          <button  mat-raised-button>Somthing</button>
+        </div>
+        <div class="row">
+          <button  mat-raised-button>Somthing</button>
+        </div>
+        <div class="row">
+          <button  mat-raised-button>Somthing</button>
+        </div>
+        <div class="row">
+          <button  mat-raised-button>Somthing</button>
+        </div>
+
+        <app-documentinfo></app-documentinfo>
+      </div>
+    </mat-drawer>
+    <div class="example-sidenav-content">
+      <pdf-viewer [src]="pdfSrc"
+              [render-text]="true"
+              style="display: block;"
+              [fit-to-page] = "false"
+              [original-size]="true"
+              [autoresize]="false"
+              [render-text-mode]="2"
+              [show-borders]="true"
+  ></pdf-viewer>
+    </div>
+  </mat-drawer-container>

@@ -7,15 +7,6 @@
       <div class="centre"><button  mat-raised-button [routerLink]="['/search']" routerLinkActive="router-link-active">Search</button></div>
     </div>
   </div>
-
-  <div class="card center" style="width: 80rem;">
-    <div class="card-body">
-      <div class="centre"><button  mat-raised-button (click)="getPosts()">Load</button></div>
-    <div *ngFor="let post of posts | async">
-      {{ post | json }}
-    </div>
-    </div>
-  </div>
 </div>
 <div style="margin-top: 5%;">
   <app-search></app-search>

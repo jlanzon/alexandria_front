@@ -1,6 +1,7 @@
 {
-  "/api": {
-    "target": "https://digital.nhs.uk/restapi/CyberAlert/page",
-    "secure": false
+  "/api/*": {
+    "target": "https://app.plex.tv/desktop/#!/media/3d68114833a66abfb6f0f173167c850504680d9c/com.plexapp.plugins.library?source=6",
+    "secure": false,
+    "changeOrigin": true
   }
 }

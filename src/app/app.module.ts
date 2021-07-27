@@ -13,10 +13,12 @@ import { InfoComponent } from './components/info/info.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCommonModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
-import { DocumentviewComponent } from './components/documentview/documentview.component';
 import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfviewComponent } from './components/pdfview/pdfview.component';
+
 
 @NgModule({
   declarations: [
@@ -24,8 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     HomeComponent,
     InfoComponent,
-    DocumentviewComponent,
     DocumentinfoComponent,
+    PdfviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCommonModule,
     MatInputModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

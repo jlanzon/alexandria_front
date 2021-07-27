@@ -1,6 +1,4 @@
 import { Component, Directive, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +8,9 @@ import { SearchComponent } from '../search/search.component';
 })
 export class HomeComponent implements OnInit {
 
-  // readonly ROOT_URL= 'https://digital.nhs.uk/restapi/CyberAlert'
-  ROOT_URL= 'https://digital.nhs.uk/restapi/CyberAlert/?_limited=true'
-  posts: any;
-
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {}
 
-  getPosts(){
-    this.posts = this.http.get(this.ROOT_URL)
-  }
 
 }

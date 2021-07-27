@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DocumentviewComponent } from './documentview.component';
+import { PdfviewComponent } from './pdfview.component';
 
-describe('DocumentviewComponent', () => {
-  let component: DocumentviewComponent;
-  let fixture: ComponentFixture<DocumentviewComponent>;
+describe('PdfviewComponent', () => {
+  let component: PdfviewComponent;
+  let fixture: ComponentFixture<PdfviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DocumentviewComponent ]
+      declarations: [ PdfviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DocumentviewComponent);
+    fixture = TestBed.createComponent(PdfviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
