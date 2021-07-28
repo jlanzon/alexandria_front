@@ -18,6 +18,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfviewComponent } from './components/pdfview/pdfview.component';
+import { FormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -41,7 +44,11 @@ import { PdfviewComponent } from './components/pdfview/pdfview.component';
     MatInputModule,
     MatGridListModule,
     HttpClientModule,
-    PdfViewerModule
+    PdfViewerModule,
+    FormsModule,
+    NoopAnimationsModule,
+    MatSlideToggleModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

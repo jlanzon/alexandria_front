@@ -7,8 +7,9 @@
     </mat-toolbar>
     <mat-drawer #drawer class="example-sidenav" mode="over">
       <div class="container">
-        <div class="row">
-          <button  mat-raised-button>Somthing</button>
+        <div class="row2">
+          <button  class="button1" mat-raised-button (click)= "incrementZoom(0.5)">Zoom +</button>
+          <button  class="button1" mat-raised-button (click)= "incrementZoom(-0.5)">Zoom -</button>
         </div>
         <div class="row">
           <button  mat-raised-button>Somthing</button>
@@ -20,21 +21,49 @@
           <button  mat-raised-button>Somthing</button>
         </div>
         <div class="row">
-          <button  mat-raised-button>Somthing</button>
+          <button  mat-raised-button>Load Outline</button>
+        </div>
+        <app-documentinfo></app-documentinfo>
+        <div *ngIf="showAll" class="mb">
+          <mat-slide-toggle [(ngModel)]="isOutlineShown">
+            Show outline
+          </mat-slide-toggle>
         </div>
 
-        <app-documentinfo></app-documentinfo>
+        <div *ngIf="showAll && isOutlineShown">
+          <ul *ngFor="let item of outline" class="outline-list">
+            <li>
+              <a (click)="navigateTo(item.dest)">
+                {{ item.title }}
+              </a>
+
+              <ul *ngFor="let child of item.items">
+                <li>
+                  <a (click)="navigateTo(child.dest)">
+                    {{ child.title }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </mat-drawer>
     <div class="example-sidenav-content">
-      <pdf-viewer [src]="pdfSrc"
-              [render-text]="true"
-              style="display: block;"
-              [fit-to-page] = "false"
-              [original-size]="true"
-              [autoresize]="false"
-              [render-text-mode]="2"
-              [show-borders]="true"
-  ></pdf-viewer>
+      <div *ngIf="!isLoaded && !error && progressData" id="progress">
+        <div class="bg">
+          <div class="bar" [style.width]="progressData.loaded / progressData.total * 100 + '%'"></div>
+        </div>
+        <span>{{ getInt(progressData.loaded / progressData.total * 100) }}%</span>
+      </div>
+      <pdf-viewer [src]="pdfSrc" [(page)]="page" [rotation]="rotation" [original-size]="originalSize" [show-all]="showAll"
+      [fit-to-page]="fitToPage" (after-load-complete)="afterLoadComplete($event)" [zoom]="zoom"
+      [stick-to-page]="stickToPage" [render-text]="renderText" [external-link-target]="'blank'"
+      [autoresize]="autoresize" (error)="onError($event)" (on-progress)="onProgress($event)"
+      (page-rendered)="pageRendered($event)" (pages-initialized)="pageInitialized($event)"></pdf-viewer>
+
+      <!-- things taken out
+      [zoom-scale]="zoomScale"
+      -->
     </div>
   </mat-drawer-container>

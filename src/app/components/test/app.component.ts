@@ -1,38 +1,42 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+/**
+ * Created by vadimdez on 21/06/16.
+ */
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import {
   PDFProgressData,
   PDFDocumentProxy,
   PDFSource
 } from './pdf-viewer/pdf-viewer.module';
+
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 @Component({
-  selector: 'app-pdfview',
-  templateUrl: './pdfview.component.html',
-  styleUrls: ['./pdfview.component.css']
+  moduleId: module.id,
+  selector: 'pdf-viewer-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class PdfviewComponent implements OnInit {
-  pdfSrc: string | PDFSource = 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/960172/JSP_834_Part_1_V5.1_Feb_2021.pdf';
+export class AppComponent implements OnInit {
+  pdfSrc: string | PDFSource | ArrayBuffer = './assets/pdf-test.pdf';
 
   error: any;
   page = 1;
   rotation = 0;
-  zoom = 0.5;
-  zoomScale = 'page-fit';
+  zoom = 1.0;
+  zoomScale = 'page-width';
   originalSize = false;
   pdf: any;
   renderText = true;
   progressData: PDFProgressData;
   isLoaded = false;
-  stickToPage = true;
+  stickToPage = false;
   showAll = true;
-  autoresize = false;
+  autoresize = true;
   fitToPage = false;
   outline: any[];
   isOutlineShown = false;
   pdfQuery = '';
   mobile = false;
-  DocumentTitle = "PDF"
 
   @ViewChild(PdfViewerComponent)
   private pdfComponent: PdfViewerComponent;
@@ -73,7 +77,6 @@ export class PdfviewComponent implements OnInit {
 
   incrementZoom(amount: number) {
     this.zoom += amount;
-    console.log(this.zoom)
   }
 
   rotate(angle: number) {
@@ -225,6 +228,6 @@ export class PdfviewComponent implements OnInit {
       this.mobile = true;
     else
       this.mobile = false;
-
+      
   }
 }
