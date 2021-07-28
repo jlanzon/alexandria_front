@@ -10,6 +10,7 @@ export class SearchComponent implements OnInit {
 
   document = "Publications"
 
+  pdfSrc: string = '../../../assets/jsp834.png';
 
   constructor() { }
 

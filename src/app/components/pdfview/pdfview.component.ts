@@ -29,7 +29,7 @@ export class PdfviewComponent implements OnInit {
   autoresize = false;
   fitToPage = false;
   outline: any[];
-  isOutlineShown = false;
+  isOutlineShown = true;
   pdfQuery = '';
   mobile = false;
   DocumentTitle = "PDF"
@@ -63,9 +63,6 @@ export class PdfviewComponent implements OnInit {
   /**
    * Set custom path to pdf worker
    */
-  setCustomWorkerPath() {
-    (window as any).pdfWorkerSrc = '/lib/pdfjs-dist/build/pdf.worker.js';
-  }
 
   incrementPage(amount: number) {
     this.page += amount;

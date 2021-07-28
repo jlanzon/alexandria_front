@@ -21,6 +21,7 @@ import { PdfviewComponent } from './components/pdfview/pdfview.component';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     PdfViewerModule,
     FormsModule,
     NoopAnimationsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCardModule
 
   ],
   providers: [],

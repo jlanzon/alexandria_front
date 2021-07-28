@@ -20,8 +20,8 @@ import { debounceTime, filter, takeUntil } from 'rxjs/operators';
 import * as PDFJS from 'pdfjs-dist/es5/build/pdf';
 import * as PDFJSViewer from 'pdfjs-dist/es5/web/pdf_viewer';
 
-import { createEventBus } from '../utils/event-bus-utils';
-import { assign, isSSR } from '../utils/helpers';
+import { createEventBus } from '../../pdfview/utils/event-bus-utils';
+import { assign, isSSR } from '../../pdfview/utils/helpers';
 
 import type {
   PDFSource,

@@ -19,3 +19,37 @@
 .logo{
   align-items: center;
 }
+
+.example-card {
+  max-width: 400px;
+  margin: 10px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+
+
+.results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.RAF{
+  background-image: url('../../../assets/raf.jpg');
+  background-size: cover;
+}
+
+.RoyalNavy{
+  background-image: url('../../../assets/royalnavy.png');
+  background-size: cover;
+}
+
+.ARMY{
+  background-image: url('../../../assets/army.png');
+  background-size: cover;
+}
