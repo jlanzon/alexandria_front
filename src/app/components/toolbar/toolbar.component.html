@@ -1,1 +1,21 @@
-<h1>Project Alexandria</h1>
+<div class="toolbar">
+  <h1>Project Alexandria</h1>
+  <div class="profile" *ngIf="!(afAuth.user | async)">
+    <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">Log in</button>
+      <button mat-menu-item [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign Up</button>
+    </mat-menu>
+  </div>
+  <div class="profile" *ngIf="(afAuth.user | async)">
+    <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" >
+      <button mat-menu-item (click)="logOut()">Log out</button>
+      <button mat-menu-item>Somthing else</button>
+    </mat-menu>
+  </div>
+</div>

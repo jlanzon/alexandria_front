@@ -18,15 +18,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfviewComponent } from './components/pdfview/pdfview.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
-
-
+import {MatMenuModule} from '@angular/material/menu';
 
 //firestore data
-//imports 
+//imports
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -36,7 +35,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { environment } from 'src/environments/environment';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-//config 
+//config
 
 
 
@@ -70,6 +69,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     NoopAnimationsModule,
     MatSlideToggleModule,
     MatCardModule,
+    ReactiveFormsModule,
+    MatMenuModule,
     //firestore
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore

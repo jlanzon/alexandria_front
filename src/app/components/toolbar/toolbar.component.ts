@@ -8,13 +8,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public afs: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
 
   logOut(){
-    this.afs.signOut();
+    this.afAuth.signOut();
   }
 
 }

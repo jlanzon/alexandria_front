@@ -1,0 +1,15 @@
+.toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile{
+  right: 0;
+  position: absolute;
+  margin-right: 2%;
+}
+.fab{
+  margin-right: 3%;
+  background-color: #7acaff;
+  color: black;
+}
