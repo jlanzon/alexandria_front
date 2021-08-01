@@ -24,6 +24,22 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 
 
+
+//firestore data
+//imports 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { environment } from 'src/environments/environment';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+//config 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +48,10 @@ import {MatCardModule} from '@angular/material/card';
     InfoComponent,
     DocumentinfoComponent,
     PdfviewComponent,
+    LoginComponent,
+    DashboardComponent,
+    SignupComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +69,13 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     NoopAnimationsModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    //firestore
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule
+    //end
 
   ],
   providers: [],
