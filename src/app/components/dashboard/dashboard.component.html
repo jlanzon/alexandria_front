@@ -1,1 +1,15 @@
-<p>Roles</p>
+ <div class="dashboard">
+    <div class="profile">
+        <div>Profile</div>
+
+        <div>Username:</div>
+    </div>
+    <div class="documents">
+        <div class="uploads">Uploads</div>
+        <div class="stats">stats</div>
+    </div>
+    <div></div>
+    <button mat-menu-item [routerLink]="['/info/readersinfo']" routerLinkActive="router-link-active">Readers</button>
+    <button mat-menu-item [routerLink]="['/info/managersinfo']" routerLinkActive="router-link-active">Managers</button>
+    <button mat-menu-item [routerLink]="['/info/devinfo']" routerLinkActive="router-link-active">Developers</button>
+</div>

@@ -62,6 +62,17 @@ signupUser(user: any): Promise<any> {
   // }
 }
 
+userInfo(user){
+  const data: User = {
+    uid: user.uid,
+    email: user.email,
+    role: {
+      reader: true
+    }
+  }
+  return data
+}
+
 
 private updateUserData(user) {
   // Sets user data to firestore on login

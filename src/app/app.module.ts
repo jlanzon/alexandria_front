@@ -35,6 +35,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { environment } from 'src/environments/environment';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ManagersinfoComponent } from './components/info/managersinfo/managersinfo.component';
+import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
+import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
 //config
 
 
@@ -51,6 +54,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     DashboardComponent,
     SignupComponent,
     ToolbarComponent,
+    ManagersinfoComponent,
+    ReadersinfoComponent,
+    DevinfoComponent,
   ],
   imports: [
     BrowserModule,

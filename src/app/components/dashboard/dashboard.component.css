@@ -1,0 +1,28 @@
+.dashboard{
+    border: rosybrown;
+}
+.profile{
+    background-color: red;
+    width: 15vw;
+    height: 40vh;
+}
+.documents{
+    background-color: rosybrown;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.uploads{
+    background-color: saddlebrown;
+    width: 30vw;
+    height: 40vh;
+}
+
+.stats{
+    background-color: silver;
+    width: 70vw;
+    height: 40vh;
+}
