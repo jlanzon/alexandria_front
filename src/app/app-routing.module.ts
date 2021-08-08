@@ -9,10 +9,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagersinfoComponent } from './components/info/managersinfo/managersinfo.component';
-import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component'; 
+import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
 import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
 
 import { AuthGuard } from './services/auth.guard';
+import { TestpageComponent } from './components/testpage/testpage.component';
 
 const routes: Routes = [
 {  path: "", component: HomeComponent},
@@ -24,8 +25,9 @@ const routes: Routes = [
 {  path: "signup", component: SignupComponent},
 {  path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard]},
 {  path: "info/readersinfo", component: ReadersinfoComponent, canActivate: [AuthGuard]},
-{  path: "info/managersinfo", component: ManagersinfoComponent, canActivate: [AuthGuard]},  
-{  path: "info/devinfo", component: DevinfoComponent, canActivate: [AuthGuard]}
+{  path: "info/managersinfo", component: ManagersinfoComponent, canActivate: [AuthGuard]},
+{  path: "info/devinfo", component: DevinfoComponent, canActivate: [AuthGuard]},
+{ path: "test/testpage", component: TestpageComponent, canActivate: [AuthGuard]}
 
 
 ];

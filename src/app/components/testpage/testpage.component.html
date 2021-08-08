@@ -1,0 +1,57 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+
+<hr>
+
+<a class="button is-dark" routerLink="/secret">
+  Super Secret Page
+</a>
+
+<a  class="button is-info" routerLink="/content">
+ Subscriber Page
+</a>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+<h3>Howdy, GUEST</h3>
+<p>Login to get started...</p>
+
+
+
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #authenticated>
+<div *ngIf="auth.user$ | async as user">
+  <h3>Howdy, {{ user.displayname }}</h3>
+  <img  src="assets/avatar.svg" width="50px">
+  <p>UID: {{ user.uid }}</p>
+  <button (click)="auth.signOut()" class="button">Logout</button>
+
+  <hr>
+
+  Subscriber:
+  <span class="tag" [class.is-success]="user.role?.reader">
+    {{ user.role?.reader }}
+  </span><br>
+
+  Editor:
+  <span class="tag" [class.is-success]="user.role?.publisher">
+    {{ user.role?.publisher }}
+  </span><br>
+
+  Admin:
+  <span class="tag" [class.is-success]="user.role?.admin">
+    {{ user.role?.admin }}
+  </span><br>
+
+
+
+</div>
+
+
+</ng-template>
+
+<hr>

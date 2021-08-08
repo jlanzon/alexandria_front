@@ -3,6 +3,7 @@ export interface Role {
   reader?: boolean;
   manager?: boolean;
   developer?: boolean;
+  admin?: boolean;
 }
 
 export interface User {

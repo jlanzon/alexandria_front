@@ -38,6 +38,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ManagersinfoComponent } from './components/info/managersinfo/managersinfo.component';
 import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
 import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
+import { TestpageComponent } from './components/testpage/testpage.component';
 //config
 
 
@@ -57,6 +58,7 @@ import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
     ManagersinfoComponent,
     ReadersinfoComponent,
     DevinfoComponent,
+    TestpageComponent,
   ],
   imports: [
     BrowserModule,

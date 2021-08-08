@@ -26,7 +26,8 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap( user => {
         if (user) {
-        return this.afs.doc<User>('users/${user.uid}').valueChanges();
+          console.log(user.uid)
+        return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
       } else {
         return of(null);
       }
@@ -87,5 +88,40 @@ private updateUserData(user) {
   console.log(user.uid)
   return userRef.set(data, { merge: true })
 }
+
+signOut() {
+  this.afAuth.signOut
+}
+
+///// Role-based Authorization //////
+
+canRead(user: User): boolean {
+  const allowed = ['admin', 'publisher', 'reader', 'manager', 'developer']
+  return this.checkAuthorization(user, allowed)
+}
+
+canEdit(user: User): boolean {
+  const allowed = ['admin', 'publisher', 'manager', 'developer']
+  return this.checkAuthorization(user, allowed)
+}
+
+canDelete(user: User): boolean {
+  const allowed = ['admin','manager', 'developer']
+  return this.checkAuthorization(user, allowed)
+}
+
+
+
+// determines if user has matching role
+private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+  if (!user) return false
+  for (const role of allowedRoles) {
+    if ( user.role[role] ) {
+      return true
+    }
+  }
+  return false
+}
+
 }
 

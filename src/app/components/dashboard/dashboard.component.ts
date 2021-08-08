@@ -9,13 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth, private auth: AuthService) { }
+  constructor(public afAuth: AngularFireAuth, public auth: AuthService) { }
 
    user = AuthService
-  
+
   ngOnInit(): void {
 
-    console.log(this.auth.userInfo(this.afAuth))
   }
 
 }

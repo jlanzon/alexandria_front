@@ -1,15 +1,42 @@
- <div class="dashboard">
-    <div class="profile">
-        <div>Profile</div>
-
-        <div>Username:</div>
-    </div>
-    <div class="documents">
-        <div class="uploads">Uploads</div>
-        <div class="stats">stats</div>
-    </div>
-    <div></div>
-    <button mat-menu-item [routerLink]="['/info/readersinfo']" routerLinkActive="router-link-active">Readers</button>
-    <button mat-menu-item [routerLink]="['/info/managersinfo']" routerLinkActive="router-link-active">Managers</button>
-    <button mat-menu-item [routerLink]="['/info/devinfo']" routerLinkActive="router-link-active">Developers</button>
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+  <!-- template will replace this div -->
 </div>
+  <ng-template #guest>
+    <p>are not logged on!!!</p>
+  </ng-template>
+  <ng-template #authenticated>
+    <div class="dashboard">
+      <div *ngIf="auth.user$ | async as user">
+        <div class="profile">
+            <div>Profile</div>
+            <div>Username:</div>
+            <div>UID: {{ user.uid }}</div>
+            <div>Role: {{ user.role }}</div>
+            <div>Email: {{ user.email }}</div>
+            Subscriber:
+  <span class="tag" [class.is-success]="user.role?.reader">
+    {{ user.role?.reader }}
+  </span><br>
+
+  Editor:
+  <span class="tag" [class.is-success]="user.role?.publisher">
+    {{ user.role?.publisher }}
+  </span><br>
+
+  Admin:
+  <span class="tag" [class.is-success]="user.role?.admin">
+    {{ user.role?.admin }}
+  </span><br>
+            <button mat-menu-item [routerLink]="['/info/readersinfo']" routerLinkActive="router-link-active">Readers</button>
+            <button mat-menu-item [routerLink]="['/info/managersinfo']" routerLinkActive="router-link-active">Managers</button>
+            <button mat-menu-item [routerLink]="['/info/devinfo']" routerLinkActive="router-link-active">Developers</button>
+            <button mat-menu-item [routerLink]="['/test/testpage']" routerLinkActive="router-link-active">Test</button>
+        </div>
+        <div class="documents">
+            <div class="uploads">Uploads</div>
+            <div class="stats">stats</div>
+
+          </div>
+        </div>
+      </div>
+      </ng-template>
