@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -16,17 +16,19 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class AuthService {
   user$: Observable<User>;
   userLoggedIn: boolean;
+  
 
 
   constructor(
-    private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
-    private router: Router
+    public afAuth: AngularFireAuth,
+    public afs: AngularFirestore,
+    public router: Router,
+    public ngZone: NgZone
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap( user => {
         if (user) {
-          console.log(user.uid)
+          this.updateUserData(user)
         return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
       } else {
         return of(null);
@@ -54,19 +56,25 @@ export class AuthService {
 signupUser(user: any): Promise<any> {
     return this.afAuth.createUserWithEmailAndPassword(user.email, user.password)
         .then((result) => {
+          this.ngZone.run(() =>{
+            this.router.navigate(['dashboard']);
+          });
             let emailLower = user.email.toLowerCase();
-            result.user.sendEmailVerification();                    // immediately send the user a verification email
+            this.createNewUser(result.user)
+        }).catch((error) => {
+          window.alert(error.message)
         })
   // async googleSignin() {
   //   const provider = new AuthService.GoogleAuthProvider();
-
   // }
 }
 
 userInfo(user){
   const data: User = {
     uid: user.uid,
+    displayname: user.displayname,
     email: user.email,
+    rank: user.rank,
     role: {
       reader: true
     }
@@ -74,6 +82,25 @@ userInfo(user){
   return data
 }
 
+updateRole(user){
+  const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+}
+
+private createNewUser(user) {
+  // Sets user data to firestore on login
+  const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+  const data: User = {
+    verified: false,
+    rank: "not configured",
+    displayname: "not configured",
+    uid: user.uid,
+    email: user.email,
+    role: {
+      reader: true
+    }
+  }
+  return userRef.set(data, { merge: true })
+}
 
 private updateUserData(user) {
   // Sets user data to firestore on login
@@ -85,7 +112,6 @@ private updateUserData(user) {
       reader: true
     }
   }
-  console.log(user.uid)
   return userRef.set(data, { merge: true })
 }
 

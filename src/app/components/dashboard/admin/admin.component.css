@@ -1,0 +1,53 @@
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+.profile{
+    background-color: red;
+    width: 15vw;
+    height: 40vh;
+    margin-right: 0%;
+    overflow: hidden;
+}
+.table {
+    width: 100%;
+  }
+.documents{
+    background-color: rosybrown;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.users{
+    background-color: blue;
+    width: 85vw;
+    height: 40vh;
+    margin-right: 0%;
+    max-height: 40vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.uploads{
+    background-color: saddlebrown;
+    width: 30vw;
+    height: 40vh;
+}
+
+.stats{
+    background-color: silver;
+    width: 70vw;
+    height: 40vh;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}

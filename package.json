@@ -28,7 +28,7 @@
     "@angular/router": "^12.2.0",
     "bootstrap": "^5.1.0",
     "cors": "^2.8.5",
-    "firebase": "^8.9.0",
+    "firebase": "^8.9.1",
     "jquery": "^3.6.0",
     "ng2-pdf-viewer": "^7.0.1",
     "popper.js": "^1.16.1",

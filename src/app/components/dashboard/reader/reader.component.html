@@ -1,0 +1,40 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+    <ng-template #guest>
+      <p>are not logged on!!!</p>
+    </ng-template>
+    <ng-template #authenticated>
+      <div class="dashboard">
+        <div *ngIf="auth.user$ | async as user">
+          <div class="profile">
+              <div>Profile</div>
+              <div>Username:</div>
+              <div>UID: {{ user.uid }}</div>
+              <div>Role: {{ user.role.reader }}</div>
+              <div>Email: {{ user.email }}</div>
+              <div>{{ user.topRole}}</div>
+              <button [routerLink]="['/profile', user.uid]"> Profile</button>
+    <span class="tag" [class.is-success]="user.role?.reader">
+      {{ user.role?.reader }}
+    </span><br>
+  
+    Editor:
+    <span class="tag" [class.is-success]="user.role?.publisher">
+      {{ user.role?.publisher }}
+    </span><br>
+  
+    Admin:
+    <span class="tag" [class.is-success]="user.role?.admin">
+      {{ user.role?.admin }}
+    </span><br>
+          </div>
+          <div class="documents">
+              <div class="uploads">Uploads</div>
+              <div class="stats">stats</div>
+  
+            </div>
+          </div>
+        </div>
+        </ng-template>
+  

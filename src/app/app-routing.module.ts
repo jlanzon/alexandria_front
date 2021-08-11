@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Injectable, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
 import { HomeComponent } from './components/home/home.component';
@@ -11,9 +11,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManagersinfoComponent } from './components/info/managersinfo/managersinfo.component';
 import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
 import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
-
 import { AuthGuard } from './services/auth.guard';
 import { TestpageComponent } from './components/testpage/testpage.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
+import { ProfileupdateComponent } from './components/profile/profileupdate/profileupdate.component';
+import { AdminComponent } from './components/dashboard/admin/admin.component';
+
+
+
+
 
 const routes: Routes = [
 {  path: "", component: HomeComponent},
@@ -27,7 +33,10 @@ const routes: Routes = [
 {  path: "info/readersinfo", component: ReadersinfoComponent, canActivate: [AuthGuard]},
 {  path: "info/managersinfo", component: ManagersinfoComponent, canActivate: [AuthGuard]},
 {  path: "info/devinfo", component: DevinfoComponent, canActivate: [AuthGuard]},
-{ path: "test/testpage", component: TestpageComponent, canActivate: [AuthGuard]}
+{  path: "test/testpage", component: TestpageComponent, canActivate: [AuthGuard]},
+{  path: `profile/:uid`, component: ProfileComponent, canActivate: [AuthGuard]},
+{  path: "profile/:uid/update", component: ProfileupdateComponent, canActivate: [AuthGuard]},
+{  path: "dashboard/:uid/admin", component: AdminComponent, canActivate: [AuthGuard]},
 
 
 ];

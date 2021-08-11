@@ -23,6 +23,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
 
 //firestore data
 //imports
@@ -39,6 +41,10 @@ import { ManagersinfoComponent } from './components/info/managersinfo/managersin
 import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
 import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
 import { TestpageComponent } from './components/testpage/testpage.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
+import { ProfileupdateComponent } from './components/profile/profileupdate/profileupdate.component';
+import { AdminComponent } from './components/dashboard/admin/admin.component';
+import { ReaderComponent } from './components/dashboard/reader/reader.component';
 //config
 
 
@@ -59,6 +65,10 @@ import { TestpageComponent } from './components/testpage/testpage.component';
     ReadersinfoComponent,
     DevinfoComponent,
     TestpageComponent,
+    ProfileComponent,
+    ProfileupdateComponent,
+    AdminComponent,
+    ReaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +89,8 @@ import { TestpageComponent } from './components/testpage/testpage.component';
     MatCardModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatChipsModule,
+    MatTableModule,
     //firestore
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore

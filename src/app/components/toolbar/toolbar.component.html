@@ -13,10 +13,13 @@
     <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <mat-menu #menu="matMenu" >
-      <button mat-menu-item disabled>Profile</button>
+    <mat-menu #menu="matMenu">
+      <span *ngIf="auth.user$ | async as user">
+      <button mat-menu-item [routerLink]="['/profile', user.uid]">Profile</button>
       <button mat-menu-item [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Dashboard</button>
       <button mat-menu-item (click)="logOut()">Log out</button>
+    </span>
     </mat-menu>
+  
   </div>
 </div>

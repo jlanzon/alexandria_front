@@ -1,0 +1,71 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+    <ng-template #guest>
+      <p>are not logged on!!!</p>
+    </ng-template>
+    <ng-template #authenticated>
+      <div class="dashboard">
+        <div *ngIf="auth.user$ | async as user">
+        <div class="top">
+          <div class="profile">
+              <div>Profile</div>
+              <div>Username:</div>
+              <div>UID: {{ user.uid }}</div>
+              <div>Role: {{ user.role.reader }}</div>
+              <div>Email: {{ user.email }}</div>
+              <div>{{ user.topRole}}</div>
+              <button [routerLink]="['/profile', user.uid]"> Profile</button>
+              <span class="tag" [class.is-success]="user.role?.reader">
+                {{ user.role?.reader }}
+            </span><br>
+                Editor:
+                <span class="tag" [class.is-success]="user.role?.publisher">
+                {{ user.role?.publisher }} 
+            </span><br>
+                Admin:
+                <span class="tag" [class.is-success]="user.role?.admin">
+                {{ user.role?.admin }}
+            </span><br>
+          </div>
+          <div class="users">
+            <mat-card>
+                <div *ngIf="user.role.admin == true" class="userUpdate">
+                  <div>
+                    <table mat-table class="mat-elevation-z8" *ngFor="let user of users | async">
+                        <!-- UID -->
+                        <ng-container matColumnDef="uid">
+                            <th mat-header-cell *matHeaderCellDef> UID </th>
+                            <td mat-cell> {{user.uid}} </td>
+                        </ng-container>
+                        <!-- DisplayName -->
+                        <ng-container matColumnDef="displayname">
+                            <th mat-header-cell *matHeaderCellDef> DisplayName </th>
+                            <td mat-cell> {{user.displayname}} </td>
+                        </ng-container>
+                        <!-- email -->
+                        <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+                            <td mat-cell> {{user.email}} </td>
+                        </ng-container>
+                        <!-- rank -->
+                        <ng-container matColumnDef="rank">
+                            <th mat-header-cell *matHeaderCellDef> RANK </th>
+                            <td mat-cell> {{user.rank}} </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </div>
+                </div>
+              </mat-card>
+          </div>
+          </div>
+          <div class="documents">
+              <div class="uploads">Uploads</div>
+              <div class="stats">stats</div>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+  

@@ -3,21 +3,18 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-toolbar',
-  templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  selector: 'app-reader',
+  templateUrl: './reader.component.html',
+  styleUrls: ['./reader.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class ReaderComponent implements OnInit {
 
   constructor(public afAuth: AngularFireAuth, public auth: AuthService) { }
 
-  user = AuthService
+   user = AuthService
 
   ngOnInit(): void {
-  }
 
-  logOut(){
-    this.afAuth.signOut();
   }
 
 }

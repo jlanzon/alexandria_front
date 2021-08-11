@@ -12,4 +12,6 @@ export interface User {
     displayname?: string;
     rank?: string;
     role: Role;
+    topRole?: string;
+    verified?: boolean;
 }

@@ -1,0 +1,14 @@
+.userUpdate{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userAttribute{
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+
+.userAttributetext{
+    margin-bottom: 0%;
+}

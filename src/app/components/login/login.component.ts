@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((result) => {
           if (result == null) {                               // null is success, false means there was an error
-              console.log('logging in...');
+              console.log('SUCCESS');
               this.router.navigate(['/dashboard']);                // when the user is logged in, navigate them to dashboard
           }
           else if (result.isValid == false) {

@@ -1,27 +1,53 @@
-<mat-card>
-  <form [formGroup]="signupForm" (ngSubmit)="signup()">
-      <p>
-          <mat-form-field appearance="outline">
-              <mat-label>Full Name</mat-label>
-              <input autocomplete="off" formControlName="displayName" type="text" matInput placeholder="Display Name">
-          </mat-form-field>
-      </p>
-      <p>
-          <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input formControlName="email" type="email" matInput placeholder="Email">
-          </mat-form-field>
-      </p>
-      <p>
-          <mat-form-field appearance="outline">
-              <mat-label>Password</mat-label>
-              <input autocomplete="off" formControlName="password" type="password" matInput placeholder="Password">
-          </mat-form-field>
-      </p>
-      <div *ngIf="firebaseErrorMessage != ''" class="error-style">
-          <span>{{ firebaseErrorMessage }}</span>
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+  <ng-template #guest> 
+    <mat-card>
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Email">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Password:</mat-label>
+                <input autocomplete="off" formControlName="password" type="password" matInput placeholder="Password">
+            </mat-form-field>
+        </p>
+        <!-- <p>                                        one day add this to match passwords 
+            <mat-form-field appearance="outline">
+                <mat-label>Password:</mat-label>
+                <input matInput  placeholder="Password:" [type]="hide ? 'password' : 'text'" [formControl]="passFormControl" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                <mat-error *ngIf="passFormControl.hasError('required', 'password')">
+                    Please enter your new password
+                 </mat-error>
+              </mat-form-field>
+        </p> -->
+        <!-- <p>  
+              <mat-form-field appearance="outline">
+                <mat-label>Confirm Password:</mat-label>
+                 <input matInput  placeholder="Confirm Password:" [type]="hide ?'password' : 'text'" [formControl]="confirmFormControl" required [errorStateMatcher]="matcher">
+                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                 <mat-error *ngIf="confirmFormControl.hasError('notSame')">
+                    Passwords do not match
+                  </mat-error>
+              </mat-form-field>
+        </p> -->
+        <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+            <span>{{ firebaseErrorMessage }}</span>
+        </div>
+        <button mat-menu-item color="primary">Signup</button>
+    </form>
+    <div >
+        <span>Already have an account? <button class="redirect"  mat-menu-item [routerLink]="['/login']" >Log In</button></span>
       </div>
-
-      <button mat-raised-button color="primary">Signup</button>
-  </form>
-</mat-card>
+    </mat-card>
+  </ng-template>
+  <ng-template #authenticated>
+    <div *ngIf="auth.user$ | async as user">
+      <p>You are already signed in as {{user.displayname}}</p>
+    </div>
+  </ng-template>
