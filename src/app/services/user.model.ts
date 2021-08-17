@@ -14,4 +14,5 @@ export interface User {
     role: Role;
     topRole?: string;
     verified?: boolean;
+    photoURL?: string;
 }

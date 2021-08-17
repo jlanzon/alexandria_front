@@ -1,16 +1,18 @@
 .dashboard{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 }
 .profile{
-    background-color: white;
-    width: 15vw;
-    height: 40vh;
-    margin-right: 0%;
-    overflow: hidden;
-    border-style: solid ;
+  background-color: white;
+  width: 40vw;
+  height: 40vh;
+  margin-right: 0%;
+  overflow: hidden;
+  border-style: solid ;
+  justify-content: center;
+  display: flex;
 }
 .table {
     width: 100%;
@@ -26,7 +28,7 @@
 
 .users{
     background-color: white;
-    width: 85vw;
+    width: 60vw;
     height: 40vh;
     margin-right: 0%;
     max-height: 40vh;
@@ -70,7 +72,7 @@
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 80vw;
+  width: 55vw;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
 }
@@ -103,3 +105,44 @@
   font-weight: bold;
   color: #009879;
 }
+
+
+
+/* PROFILE CSS */
+
+body {
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif
+}
+
+.card {
+  background-color: #bbbbbb;
+  width: 30vw;
+  height: 90%;
+  border-radius: 20px
+}
+
+.heading {
+  font-weight: 700
+}
+
+.hour {
+  margin-top: 1px;
+  color: green;
+  font-size: 12px
+}
+
+.ratings i {
+  color: #388E3C
+}
+
+.btn {
+  border-radius: 15px !important
+}
+
+.line-color {
+  color: green;
+  height: 3px
+}
+
+/* PROFILE CSS END */

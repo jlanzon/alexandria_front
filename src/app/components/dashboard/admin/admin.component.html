@@ -9,24 +9,29 @@
         <div *ngIf="auth.user$ | async as user">
         <div class="top">
           <div class="profile">
-              <div>Profile</div>
-              <div>Username:</div>
-              <div>UID: {{ user.uid }}</div>
-              <div>Role: {{ user.role.reader }}</div>
-              <div>Email: {{ user.email }}</div>
-              <div>{{ user.topRole}}</div>
-              <button [routerLink]="['/profile', user.uid]"> Profile</button>
-              <span class="tag" [class.is-success]="user.role?.reader">
-                {{ user.role?.reader }}
-            </span><br>
-                Editor:
-                <span class="tag" [class.is-success]="user.role?.publisher">
-                {{ user.role?.publisher }}
-            </span><br>
-                Admin:
-                <span class="tag" [class.is-success]="user.role?.admin">
-                {{ user.role?.admin }}
-            </span><br>
+            <div class="card p-4 mt-3">
+              <div class="first">
+                  <h6 class="heading">{{user.email}}</h6>
+                  <div class="time d-flex flex-row align-items-center justify-content-between mt-3">
+                      <div class="d-flex align-items-center"> <i class="fa fa-clock-o clock"></i> <span class="hour ml-1">Null</span> </div>
+                      <div> <span class="font-weight-bold">Null</span> </div>
+                  </div>
+              </div>
+              <div class="second d-flex flex-row mt-2">
+                  <div class="image mr-3"> <img src="{{user.photoURL}}" class="rounded-circle" width="60" /> </div>
+                  <div class="">
+                      <div class="d-flex flex-row mb-1"> <span>{{user.displayname}}</span>
+                          <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                      </div>
+                      <div><button disabled class="btn btn-outline-dark btn-sm">reader</button><span *ngIf="user.role.admin == true"><button disabled class="btn btn-outline-dark btn-sm">Admin</button></span> </div>
+                  </div>
+              </div>
+              <hr class="line-color">
+              <h6>{{user.uid}}</h6>
+              <div class="third mt-4"> <button class="btn btn-success btn-block" [routerLink]="['/profile', user.uid]"><i class="fa fa-clock-o"></i>Profile</button>
+                <span *ngIf="user.role.admin == true"><button class="btn btn-success btn-block" [routerLink]="['/dashboard', user.uid, 'admin']"><i class="fa fa-clock-o"></i>Admin Dashboard</button></span>
+              </div>
+            </div>
           </div>
           <div class="users">
             <mat-card class="tableinside">

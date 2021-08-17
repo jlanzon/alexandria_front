@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
   users: Observable<any[]>
   documentCollection: AngularFirestoreCollection<documents>
   documents: Observable<any[]>
+  test: any
 
   constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore,public dialog: MatDialog) {}
 
@@ -36,23 +37,18 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.userCollection = this.afs.collection('users')
     this.users = this.userCollection.valueChanges()
+    // this.test = this.userCollection.valueChanges().subscribe( x => {
+    //   console.log(x)
+    // })
+
+    // this.test = this.afAuth.user.subscribe(x => {console.log(x.uid)})
+    console.log(this.test)
     this.documentCollection = this.afs.collection('documents')
     this.documents = this.documentCollection.valueChanges()
 
   }
 }
 
-// export class DialogContentExample {
-//   constructor(public dialog: MatDialog) {}
-
-//   openDialog() {
-//     const dialogRef = this.dialog.open(DialogContentExampleDialog);
-
-//     dialogRef.afterClosed().subscribe(result => {
-//       console.log(`Dialog result: ${result}`);
-//     });
-//   }
-// }
 
 @Component({
   selector: 'app-dialog',
@@ -65,7 +61,9 @@ export class DialogContentExampleDialog {
   users: Observable<any[]>
   documentCollection: AngularFirestoreCollection<documents>
   documents: Observable<any[]>
-  test = "somthing"
+  test: any
+  uid: string
+ 
 
 
   constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore,public dialog: MatDialog) {}
@@ -78,13 +76,23 @@ export class DialogContentExampleDialog {
   //   });
   // }
 
-
+   false = null
+   testButton(){
+     this.afAuth.user.subscribe(x => {if (x) {
+       this.uid = x.uid
+    } else {
+      this.false = true;  
+    }})
+  console.log(this.false)
+}
+  
 
   ngOnInit(): void {
     this.userCollection = this.afs.collection('users')
     this.users = this.userCollection.valueChanges()
     this.documentCollection = this.afs.collection('documents')
     this.documents = this.documentCollection.valueChanges()
+    this.testButton()
 
   }
 }

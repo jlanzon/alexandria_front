@@ -6,11 +6,13 @@
 }
 .profile{
   background-color: white;
-  width: 15vw;
+  width: 40vw;
   height: 40vh;
   margin-right: 0%;
   overflow: hidden;
   border-style: solid ;
+  justify-content: center;
+  display: flex;
 }
 .table {
   width: 100%;
@@ -103,3 +105,43 @@ border-bottom: 2px solid #009879;
 font-weight: bold;
 color: #009879;
 }
+
+
+/* PROFILE CSS */
+
+body {
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif
+}
+
+.card {
+    background-color: #bbbbbb;
+    width: 30vw;
+    height: 90%;
+    border-radius: 20px
+}
+
+.heading {
+    font-weight: 700
+}
+
+.hour {
+    margin-top: 1px;
+    color: green;
+    font-size: 12px
+}
+
+.ratings i {
+    color: #388E3C
+}
+
+.btn {
+    border-radius: 15px !important
+}
+
+.line-color {
+    color: green;
+    height: 3px
+}
+
+/* PROFILE CSS END */
