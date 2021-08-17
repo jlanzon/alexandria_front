@@ -25,6 +25,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 //firestore data
 //imports
@@ -91,6 +95,8 @@ import { ReaderComponent } from './components/dashboard/reader/reader.component'
     MatMenuModule,
     MatChipsModule,
     MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
     //firestore
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore

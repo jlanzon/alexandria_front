@@ -21,7 +21,7 @@
             </span><br>
                 Editor:
                 <span class="tag" [class.is-success]="user.role?.publisher">
-                {{ user.role?.publisher }} 
+                {{ user.role?.publisher }}
             </span><br>
                 Admin:
                 <span class="tag" [class.is-success]="user.role?.admin">
@@ -29,32 +29,28 @@
             </span><br>
           </div>
           <div class="users">
-            <mat-card>
+            <mat-card class="tableinside">
                 <div *ngIf="user.role.admin == true" class="userUpdate">
                   <div>
-                    <table mat-table class="mat-elevation-z8" *ngFor="let user of users | async">
-                        <!-- UID -->
-                        <ng-container matColumnDef="uid">
-                            <th mat-header-cell *matHeaderCellDef> UID </th>
-                            <td mat-cell> {{user.uid}} </td>
-                        </ng-container>
-                        <!-- DisplayName -->
-                        <ng-container matColumnDef="displayname">
-                            <th mat-header-cell *matHeaderCellDef> DisplayName </th>
-                            <td mat-cell> {{user.displayname}} </td>
-                        </ng-container>
-                        <!-- email -->
-                        <ng-container matColumnDef="email">
-                            <th mat-header-cell *matHeaderCellDef> EMAIL </th>
-                            <td mat-cell> {{user.email}} </td>
-                        </ng-container>
-                        <!-- rank -->
-                        <ng-container matColumnDef="rank">
-                            <th mat-header-cell *matHeaderCellDef> RANK </th>
-                            <td mat-cell> {{user.rank}} </td>
-                        </ng-container>
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <table class="content-table">
+                      <thead>
+                        <tr>
+                          <th>displayname</th>
+                          <th>rank</th>
+                          <th>uid</th>
+                          <th>role</th>
+                          <th>verified</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of users | async">
+                          <td>{{user.displayname}}</td>
+                          <td>{{user.rank}}</td>
+                          <td>{{user.uid}}</td>
+                          <td>{{user.role | json}}</td>
+                          <td>{{user.verified}}</td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -62,10 +58,11 @@
           </div>
           </div>
           <div class="documents">
-              <div class="uploads">Uploads</div>
-              <div class="stats">stats</div>
+              <div class="uploads">Uploads
+                <button mat-menu-item (click)="openDialog()">Upload PDF</button>
+              </div>
+              <div class="stats">STATS</div>
             </div>
           </div>
         </div>
         </ng-template>
-  

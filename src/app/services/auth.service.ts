@@ -16,7 +16,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class AuthService {
   user$: Observable<User>;
   userLoggedIn: boolean;
-  
+
 
 
   constructor(
@@ -44,6 +44,9 @@ export class AuthService {
   });
   }
 
+  whatisID(){
+    return this.afAuth.currentUser
+  }
   loginUser(email: string, password: string): Promise<any> {
     return this.afAuth.signInWithEmailAndPassword(email, password)
         .then((credential) => {

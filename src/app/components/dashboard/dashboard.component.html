@@ -9,10 +9,6 @@
         <div *ngIf="user.role.reader == true">
           <app-reader></app-reader>
         </div>
-        <div *ngIf="user.role.admin == true">
-          <button mat-menu-item [routerLink]="['/dashboard', user.uid, 'admin' ]">Admin Dashboard</button>
-        </div>
-        
       </div>
       </div>
   </ng-template>
