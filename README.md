@@ -7,4 +7,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ```node
 ng serve --open
+node server.js   // "start": "ng serve",
 ```
