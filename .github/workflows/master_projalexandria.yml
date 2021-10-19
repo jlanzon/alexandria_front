@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'projalexandria'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3C45A9C32B214FAAAE38E251390589F9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F859D30D19FF4068815B7930E051D6CD }}
           package: .
