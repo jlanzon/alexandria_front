@@ -1,26 +1,17 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { documents } from 'src/app/services/document.model';
 import { User } from 'src/app/services/user.model';
-import {NgForm} from '@angular/forms';
-import { UploadpdfComponent } from './dialog/uploadpdf/uploadpdf.component';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class AdminComponent implements OnInit {
+export class CardComponent implements OnInit {
 
   user = AuthService
   userCollection: AngularFirestoreCollection<User>
@@ -32,22 +23,8 @@ export class AdminComponent implements OnInit {
   animal: string;
   name: string;
 
-  constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore, public dialog: MatDialog) {}
+  constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore) {}
 
-
-  //dialog stuff here 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(UploadpdfComponent, {
-      width: '50vw',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      this.animal = result;
-    });
-  }
-  //end dialog 
 
   ngOnInit(): void {
     this.userCollection = this.afs.collection('users')
@@ -64,4 +41,5 @@ export class AdminComponent implements OnInit {
     this.documents = this.documentCollection.valueChanges()
 
   }
+
 }

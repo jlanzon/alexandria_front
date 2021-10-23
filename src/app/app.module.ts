@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {NgForm} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import {MatIconModule} from '@angular/material/icon';
-import {MatCommonModule} from '@angular/material/core';
+import {MatCommonModule, MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -49,6 +49,9 @@ import { ProfileComponent } from './components/profile/profile/profile.component
 import { ProfileupdateComponent } from './components/profile/profileupdate/profileupdate.component';
 import { AdminComponent } from './components/dashboard/admin/admin.component';
 import { ReaderComponent } from './components/dashboard/reader/reader.component';
+import { CardComponent } from './components/profile/card/card.component';
+import { UploadpdfComponent } from './components/dashboard/admin/dialog/uploadpdf/uploadpdf.component';
+
 //config
 
 
@@ -73,6 +76,10 @@ import { ReaderComponent } from './components/dashboard/reader/reader.component'
     ProfileupdateComponent,
     AdminComponent,
     ReaderComponent,
+    CardComponent,
+    UploadpdfComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -96,6 +103,7 @@ import { ReaderComponent } from './components/dashboard/reader/reader.component'
     MatChipsModule,
     MatTableModule,
     MatDialogModule,
+    MatRippleModule,
     MatFormFieldModule,
     //firestore
     AngularFireModule.initializeApp(environment.firebase),
@@ -105,7 +113,11 @@ import { ReaderComponent } from './components/dashboard/reader/reader.component'
     //end
 
   ],
+  entryComponents: [
+    AdminComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

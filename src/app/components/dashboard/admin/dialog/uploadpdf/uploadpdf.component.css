@@ -1,0 +1,25 @@
+.buttonedits{
+    width: 20vw;
+    /* margin-left: 5vw; */
+    margin: 5%;
+    height: 5vh;
+}
+
+.actions{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    /* width: 50vw; */
+    flex-wrap: nowrap;
+    bottom: 0;
+    position: absolute;
+}
+
+
+
+.dialog{
+    height: 70vh;
+    position: relative;
+}

@@ -6,15 +6,41 @@
     <app-toolbar></app-toolbar>
   </mat-toolbar>
   <mat-drawer #drawer class="example-sidenav" mode="over">
+    
     <div class="container">
+      <div *ngIf="auth.user$ | async; then authenticated else guest">
+        <!-- template will replace this div -->
+      </div>
+        <ng-template #guest>
+          <p>are not logged on!!!</p>
+        </ng-template>
+        <ng-template #authenticated>
+      
+        <div class="profile">
+          <div class="card p-4 mt-3">
+            <div *ngIf="auth.user$ | async as user">      
+              <div class="carddetails">                   
+                <div class="d-flex flex-row mb-1"> <span>{{user.displayname}}</span>                   
+                  <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>    
+                </div> 
+                <div><button disabled class="btn btn-outline-dark btn-sm">reader</button><span *ngIf="user.role.admin == true"><button disabled class="btn btn-outline-dark btn-sm">Admin</button></span> </div>      
+              </div>    
+            </div>
+          </div>
+        </div>
+        
+
+      </ng-template>
+
+
       <div class="row">
-        <button mat-raised-button [routerLink]="['/']" routerLinkActive="router-link-active">Home</button>
+        <button class="btnc" mat-raised-button  [routerLink]="['/']" routerLinkActive="router-link-active">Home</button>
       </div>
       <div class="row">
-        <button mat-raised-button [routerLink]="['/search']" routerLinkActive="router-link-active">Search</button>
+        <button class="btnc" mat-raised-button [routerLink]="['/search']" routerLinkActive="router-link-active">Search</button>
       </div>
       <div class="row">
-        <button  mat-raised-button [routerLink]="['/info']" routerLinkActive="router-link-active">Info</button>
+        <button class="btnc" mat-raised-button  [routerLink]="['/info']" routerLinkActive="router-link-active">Information</button>
       </div>
       <div class="text">
         <p>
@@ -22,10 +48,10 @@
         </p>
       </div>
       <div class="row">
-        <button  mat-raised-button [routerLink]="['/pdfview']" routerLinkActive="router-link-active">Document Viewer</button>
+        <button class="btnc" mat-raised-button [routerLink]="['/pdfview']" routerLinkActive="router-link-active">Document Viewer</button>
       </div>
       <div class="row">
-        <button  mat-raised-button [routerLink]="['/docinfo']" routerLinkActive="router-link-active">Document Information</button>
+        <button class="btnc" mat-raised-button [routerLink]="['/docinfo']" routerLinkActive="router-link-active">Document Information</button>
       </div>
     </div>
   </mat-drawer>

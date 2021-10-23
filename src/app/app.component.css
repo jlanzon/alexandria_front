@@ -7,7 +7,7 @@
 
 .example-sidenav {
   padding: 0px;
-  width: fit-content;
+  width: 30vw;
 }
 
 .row{
@@ -21,4 +21,59 @@
   align-items: center;
 }
 
+.btnc{
+  background-color: #198754;
+  color: white;
+}
 
+
+/* PROFILE CSS */
+
+body {
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif
+}
+
+.card {
+  background-color: #bbbbbb;
+  width: 100%;
+  height: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.heading {
+  font-weight: 700
+}
+
+.hour {
+  margin-top: 1px;
+  color: green;
+  font-size: 12px
+}
+
+.profilenav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.carddetails{
+margin-left: 5%;
+}
+
+.fill{
+width: 100%;
+margin: 2%;
+}
+
+.btn {
+  border-radius: 15px !important
+}
+
+.line-color {
+  color: green;
+  height: 3px
+}
+
+/* PROFILE CSS END */
