@@ -6,20 +6,32 @@
         <mat-label>Favorite Animal</mat-label>
         <input matInput [(ngModel)]="data.animal">
     </mat-form-field> -->
-    <form>
+    <div *ngIf="auth.user$ | async; then authenticated else guest">
+        <!-- template will replace this div -->
+      </div>
+        <ng-template #guest>
+          <p>are not logged on!!!</p>
+        </ng-template>
+
+    <form #datauploadpdf="ngForm" (ngSubmit)="onSubmit(datauploadpdf)" novalidate>
         <div class="form-group">
+            <ng-template #authenticated>
+                <div *ngIf="auth.user$ | async as user">
+                    <!-- afauth data here -->
+                </div>
+            </ng-template>
           <label for="pdfname">PDF Name</label>
-          <input type="text" class="form-control" id="pdfname" aria-describedby="pdfname" placeholder="Enter PDF Name" [(ngModel)]="data.animal">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input type="text" class="form-control" id="pdfName" name="pdfName" aria-describedby="pdfname" placeholder="Enter PDF Name" [(ngModel)]="data.pdfName" ngModel required>
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
           <label for="pdflink">Link</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="text" class="form-control" id="pdflink" placeholder="example.com/pdf" [(ngModel)]="data.link" name="pdflink" required>
         </div>
         <div class="form-group">
             <label for="pdfname">Service</label>
-            <select class="form-control form-control-sm" >
-                <option selected disabled>Chose serivce</option>
+            <select class="form-control form-control-sm" [(ngModel)]="data.serviceUploader" name="serviceUploader" required>
+                <option selected disabled>Please Select</option>
                 <option>Royal Air Force</option>
                 <option>Royal Navy</option>
                 <option>Army</option>
@@ -27,23 +39,26 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please enter a Description on your PDF"></textarea>  
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please enter a Description on your PDF" [(ngModel)]="data.description" name="description" required></textarea>  
         </div>
-            <label class="sr-only" for="inlineFormInputGroup">Tags</label>
+            <!-- <label class="sr-only" for="inlineFormInputGroup">Tags</label>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">#</div>
               </div>
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Tags"> <button class="btn btn-success btn-block">Enter</button>
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Tags" name="pdfName"> <button class="btn btn-success btn-block">Enter</button>
             </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Confirm</label>
-        </div>
-      </form>
+        </div> -->
+        
+      
     <!-- </div> -->
-    <div mat-dialog-actions class="actions">
-    <button class="btn btn-success btn-block buttonedits" (click)="onNoClick()">No Thanks</button>
-    <button class="btn btn-success btn-block buttonedits" [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-    </div>
+        <div mat-dialog-actions class="actions">
+        <button class="btn btn-success btn-block buttonedits" (click)="onNoClick()">No Thanks</button>
+        <button class="btn btn-success btn-block buttonedits"  cdkFocusInitial>Ok</button>
+        </div>
+    </form>
 </div>
+<!-- [mat-dialog-close]="data.pdfName" -->

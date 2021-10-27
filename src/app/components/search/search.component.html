@@ -26,24 +26,28 @@
       <button mat-button>SHARE</button>
     </mat-card-actions>
   </mat-card> -->
-  <table class="content-table">
-    <thead>
-      <tr>
-        <th>Number</th>
-        <th>Name</th>
-        <th>Link</th>
-        <th>Views</th>
-        <th>Likes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let docs of documents | async">
-        <td>1</td>
-        <td>{{docs.name}}</td>
-        <td><p class="link"><a href="{{docs.link}}">LINK</a></p></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>uploaderNAME</th>
+            <th>EMAIL</th>
+            <th>UID</th>
+            <th>description</th>
+            <th>serviceUploader</th>
+            <th>pdfName</th>
+            <th>LINK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let document of documents | async">
+            <td>{{document.uploaderNAME}}</td>
+            <td>{{document.uploaderEMAIL}}</td>
+            <td>{{document.uploaderUID}}</td>
+            <td>{{document.description}}</td>
+            <td>{{document.serviceUploader}}</td>
+            <td>{{document.pdfName}}</td>
+            <td><p class="link"><a href="{{document.link}}">LINK</a></p></td>
+          </tr>
+        </tbody>
+      </table>
 </div>

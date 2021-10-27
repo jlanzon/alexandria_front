@@ -7,17 +7,12 @@
     <ng-template #authenticated>
       <div class="dashboard">
         <div *ngIf="auth.user$ | async as user">
-            <div class="profile">
+            
                 <div class="card p-4 mt-3">
                     <div class="first">
                         <h6 class="heading">{{user.email}}</h6>
-                        <div class="time d-flex flex-row align-items-center justify-content-between">
-                            <div class="firstuid">{{user.uid}}</div>
-                            <div> <span class="font-weight-bold"></span></div>
-                        </div>
                     </div>
                     <div class="second d-flex flex-row mt-2">
-                        <div class="image mr-3"> <img src="{{user.photoURL}}" class="rounded-circle" width="60" /> </div>
                         <div class="carddetails">
                             <div class="d-flex flex-row mb-1"> <span>{{user.displayname}}</span>
                                 <div class="ratings ml-2"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
@@ -30,9 +25,5 @@
                          </div>
                         </div>
                     </div>
-                    <div class="mt-2 profilenav"> 
-                    <span  *ngIf="user.role.reader == true"><button class="btn btn-success btn-block fill" [routerLink]="['/profile', user.uid]"><i class="fa fa-clock-o"></i>Profile</button></span>
-                    <span  *ngIf="user.role.admin == true"><button class="btn btn-success btn-block fill" [routerLink]="['/dashboard', user.uid, 'admin']"><i class="fa fa-clock-o"></i>Admin Dashboard</button></span>
-                    </div>
                 </div>
-            </div>
+            

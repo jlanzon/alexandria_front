@@ -41,8 +41,8 @@
           <div class="documents">
               <div class="uploads">
                 <button class="btn btn-success btn-block fillupload" (click)="openDialog()">Upload PDF</button>
-                <button class="btn btn-success btn-block fillupload">Edit a post PDF</button>
-                <button class="btn btn-success btn-block fillupload">PDF search</button>
+                <button class="btn btn-success btn-block fillupload disabled">Edit a post PDF</button>
+                <button class="btn btn-success btn-block fillupload disabled">PDF search</button>
               </div>
               <div class="stats">
                 <!-- <mat-card class="tableinsidestats"> -->
@@ -51,15 +51,23 @@
                       <table class="content-table-stats">
                         <thead>
                           <tr>
-                            <th>uploader</th>
-                            <th>name</th>
-                            <th>link</th>
+                            <th>uploaderNAME</th>
+                            <th>EMAIL</th>
+                            <th>UID</th>
+                            <th>description</th>
+                            <th>serviceUploader</th>
+                            <th>pdfName</th>
+                            <th>LINK</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let document of documents | async">
-                            <td>{{document.uploader}}</td>
-                            <td>{{document.name}}</td>
+                            <td>{{document.uploaderNAME}}</td>
+                            <td>{{document.uploaderEMAIL}}</td>
+                            <td>{{document.uploaderUID}}</td>
+                            <td>{{document.description}}</td>
+                            <td>{{document.serviceUploader}}</td>
+                            <td>{{document.pdfName}}</td>
                             <td><p class="link"><a href="{{document.link}}">LINK</a></p></td>
                           </tr>
                         </tbody>

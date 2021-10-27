@@ -51,6 +51,7 @@ import { AdminComponent } from './components/dashboard/admin/admin.component';
 import { ReaderComponent } from './components/dashboard/reader/reader.component';
 import { CardComponent } from './components/profile/card/card.component';
 import { UploadpdfComponent } from './components/dashboard/admin/dialog/uploadpdf/uploadpdf.component';
+import { CardSmallComponent } from './components/profile/card-small/card-small.component';
 
 //config
 
@@ -78,6 +79,7 @@ import { UploadpdfComponent } from './components/dashboard/admin/dialog/uploadpd
     ReaderComponent,
     CardComponent,
     UploadpdfComponent,
+    CardSmallComponent,
     
     
   ],

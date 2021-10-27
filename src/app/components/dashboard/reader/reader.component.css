@@ -15,145 +15,223 @@
   display: flex;
 }
 .table {
-  width: 100%;  
-}
+    width: 100%;
+  }
 .documents{
-  background-color: rosybrown;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
+    background-color: rosybrown;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .users{
-  background-color: white;
-  width: 85vw;
-  height: 40vh;
-  margin-right: 0%;
-  max-height: 40vh;
-  overflow: hidden;
-  display: flex;
-  border-style: solid ;
+    background-color: white;
+    width: 60vw;
+    height: 40vh;
+    margin-right: 0%;
+    max-height: 40vh;
+    overflow: hidden;
+    display: flex;
+    border-style: solid ;
 }
 
 .uploads{
-  background-color: white;
-  width: 30vw;
-  height: 60vh;
-  border-style: solid ;
+    background-color: white;
+    width: 30vw;
+    height: 50vh;
+    border-style: solid ;
 }
 
 .stats{
+    background-color: white;
+    width: 70vw;
+    height: 50vh;
+    border-style: solid ;
+    display: flex;
+    justify-content: center;
+}
+
+.comingSoon{
   background-color: white;
-  width: 70vw;
-  height: 60vh;
-  border-style: solid ;
+    width: 70vw;
+    height: 50vh;
+    border-style: solid ;
+    display: flex;
+    justify-content: center;
 }
 
 .top{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
 }
 
 * {
-font-family: sans-serif; /* Change your font family */
+  font-family: sans-serif; /* Change your font family */
 }
 .tableinside{
-padding: 0%;
+  padding: 0%;
+}
+.tableinsidestats{
+  padding: 0%;
+  height: 100%;
+  max-width: 100%;
+}
+
+.content-table-stats{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.content-table-stats thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table-stats th,
+.content-table-stats td {
+  padding: 12px 15px;
+}
+
+.content-table-stats tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table-stats tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table-stats tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table-stats tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }
 .content-table {
-border-collapse: collapse;
-margin: 25px 0;
-font-size: 0.9em;
-min-width: 400px;
-border-radius: 5px 5px 0 0;
-overflow: hidden;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-width: 80vw;
-margin-left: 2.5vw;
-margin-right: 2.5vw;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  max-width: 55vw;
+  width: 50vw;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .content-table thead tr {
-background-color: #009879;
-color: #ffffff;
-text-align: left;
-font-weight: bold;
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
 }
 
 .content-table th,
 .content-table td {
-padding: 12px 15px;
+  padding: 12px 15px;
 }
 
 .content-table tbody tr {
-border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 
 .content-table tbody tr:nth-of-type(even) {
-background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .content-table tbody tr:last-of-type {
-border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #009879;
 }
 
 .content-table tbody tr.active-row {
-font-weight: bold;
-color: #009879;
+  font-weight: bold;
+  color: #009879;
 }
 
+.first{
+  height: 20%;
+}
+
+.first h6{
+  margin-bottom:0%;
+}
+
+.firstuid{
+  color: #009879;
+  margin-top: 0%;
+}
 
 /* PROFILE CSS */
 
 body {
-    background-color: #eee;
-    font-family: 'Roboto', sans-serif
+  background-color: #eee;
+  font-family: 'Roboto', sans-serif
 }
 
 .card {
-    background-color: #bbbbbb;
-    width: 30vw;
-    height: 90%;
-    border-radius: 20px;
-    overflow: hidden;
+  background-color: #bbbbbb;
+  width: 30vw;
+  height: 90%;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .heading {
-    font-weight: 700
+  font-weight: 700
 }
 
 .hour {
-    margin-top: 1px;
-    color: green;
-    font-size: 12px
+  margin-top: 1px;
+  color: green;
+  font-size: 12px
 }
 
 .profilenav {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .carddetails{
-  margin-left: 5%;
+margin-left: 5%;
 }
 
 .fill{
-  width: 100%;
-  margin: 2%;
+width: 100%;
+margin: 2%;
 }
+.fillupload{
+  width: 80%;
+  margin-top: 5vh;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5vh;
+  }
 
 .btn {
-    border-radius: 15px !important
+  border-radius: 15px !important
 }
 
 .line-color {
-    color: green;
-    height: 3px
+  color: green;
+  height: 3px
 }
 
 /* PROFILE CSS END */

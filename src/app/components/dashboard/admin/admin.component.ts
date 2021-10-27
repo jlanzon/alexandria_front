@@ -15,6 +15,17 @@ export interface DialogData {
   name: string;
 }
 
+export interface PFDUploadData {
+  pdfName: string;
+  link: string;
+  serviceUploader: string;
+  description: string;
+  tags: any;
+  uploaderUID: string;
+  uploaderEMAIL: string;
+  uploaderNAME: string;
+}
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -32,6 +43,18 @@ export class AdminComponent implements OnInit {
   animal: string;
   name: string;
 
+
+  // pdf upload 
+  pdfName: string;
+  link: string;
+  serviceUploader: string;
+  description: string;
+  // tags: any;
+  uploaderUID: string;
+  uploaderEMAIL: string;
+  uploaderNAME: string;
+  datapass: any;
+
   constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore, public dialog: MatDialog) {}
 
 
@@ -39,12 +62,21 @@ export class AdminComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(UploadpdfComponent, {
       width: '50vw',
-      data: {name: this.name, animal: this.animal}
+      data: {
+        pdfName: this.pdfName,
+        link: this.link,
+        serviceUploader: this.serviceUploader,
+        description: this.description,
+        // tags:this.tags,
+        uploaderUID: this.uploaderUID,
+        uploaderEMAIL:this.uploaderEMAIL,
+        uploaderNAME: this.uploaderNAME
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      this.animal = result;
+      this.pdfName = result;
     });
   }
   //end dialog 

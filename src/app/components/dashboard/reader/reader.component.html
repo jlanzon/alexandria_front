@@ -1,18 +1,40 @@
 <div *ngIf="auth.user$ | async; then authenticated else guest">
-    <!-- template will replace this div -->
-  </div>
-    <ng-template #guest>
-      <p>are not logged on!!!</p>
-    </ng-template>
-    <ng-template #authenticated>
-      <div class="dashboard">
-        <div *ngIf="auth.user$ | async as user">
-          <app-card></app-card>
-          <div class="documents">
-              <div class="uploads">Uploads</div>
-              <div class="stats">stats</div>
-              
+  <!-- template will replace this div -->
+</div>
+  <ng-template #guest>
+    <p>are not logged on!!!</p>
+  </ng-template>
+  <ng-template #authenticated>
+    <div class="dashboard">
+      <div *ngIf="auth.user$ | async as user">
+      <div class="top">
+        <app-card></app-card>
+        <div class="users">
+          <!-- <mat-card class="tableinside"> -->
+              <div *ngIf="user.role.admin == true" class="userUpdate">
+                <div>
+                  <h2 class="comingSoon">Somthing here soon</h2>
+                </div>
+              </div>
+            <!-- </mat-card> -->
+        </div>
+        </div>
+        <div class="documents">
+            <div class="uploads">
+              <button class="btn btn-success btn-block fillupload" [routerLink]="['/search']">Search MOD Docs</button>
+              <button class="btn btn-success btn-block fillupload disabled">Ask a Question </button>
+              <button class="btn btn-success btn-block fillupload "  [routerLink]="['/info/readersinfo']">My FAQ</button>
+            </div>
+            <div class="stats">
+              <!-- <mat-card class="tableinsidestats"> -->
+                <div *ngIf="user.role.admin == true" class="statsUpdate">
+                  <div>
+                    <h2>Somthing here soon</h2>
+                  </div>
+                </div>
+              <!-- </mat-card> -->
             </div>
           </div>
         </div>
-        </ng-template>
+      </div>
+      </ng-template>

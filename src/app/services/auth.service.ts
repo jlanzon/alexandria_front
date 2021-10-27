@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { first, switchMap } from 'rxjs/operators';
 import { User } from './user.model';
 import { error } from '@angular/compiler/src/util';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -47,6 +47,11 @@ export class AuthService {
   whatisID(){
     return this.afAuth.currentUser
   }
+
+  getUser() {
+    return this.user$.pipe(first()).toPromise();
+  }
+
   loginUser(email: string, password: string): Promise<any> {
     return this.afAuth.signInWithEmailAndPassword(email, password)
         .then((credential) => {
