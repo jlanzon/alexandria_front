@@ -1,19 +1,22 @@
 <div class="toolbar">
   <h1>Project Alexandria</h1>
   <div class="profile" *ngIf="!(afAuth.user | async)">
+    <mat-slide-toggle class="dm">Dark Mode</mat-slide-toggle>
     <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <mat-menu #menu="matMenu" >
+    <mat-menu class="menu" #menu="matMenu" >
       <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">Log in</button>
       <button mat-menu-item [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign Up</button>
+      <mat-slide-toggle>Dark Mode</mat-slide-toggle>
     </mat-menu>
   </div>
   <div class="profile" *ngIf="(afAuth.user | async)">
+    <mat-slide-toggle class="dm">Dark Mode</mat-slide-toggle>
     <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
+    <mat-menu #menu="matMenu" class="menu">
       <span *ngIf="auth.user$ | async as user">
       <button mat-menu-item [routerLink]="['/profile', user.uid]">Profile</button>
       <button mat-menu-item [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Dashboard</button>

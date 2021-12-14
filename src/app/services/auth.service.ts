@@ -83,6 +83,7 @@ userInfo(user){
     displayname: user.displayname,
     email: user.email,
     rank: user.rank,
+    Bio: "This User has no Bio",
     role: {
       reader: true
     }

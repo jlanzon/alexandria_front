@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showFiller = false;
+  showFiller = true;
   title = 'Alexandria';
   constructor(public afAuth: AngularFireAuth, public auth: AuthService) { }
 

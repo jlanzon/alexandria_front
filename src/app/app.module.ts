@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {NgForm} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfviewComponent } from './components/pdfview/pdfview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
@@ -27,6 +25,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 
 
@@ -41,10 +41,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { environment } from 'src/environments/environment';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { ManagersinfoComponent } from './components/info/managersinfo/managersinfo.component';
-import { ReadersinfoComponent } from './components/info/readersinfo/readersinfo.component';
-import { DevinfoComponent } from './components/info/devinfo/devinfo.component';
-import { TestpageComponent } from './components/testpage/testpage.component';
 import { ProfileComponent } from './components/profile/profile/profile.component';
 import { ProfileupdateComponent } from './components/profile/profileupdate/profileupdate.component';
 import { AdminComponent } from './components/dashboard/admin/admin.component';
@@ -52,6 +48,7 @@ import { ReaderComponent } from './components/dashboard/reader/reader.component'
 import { CardComponent } from './components/profile/card/card.component';
 import { UploadpdfComponent } from './components/dashboard/admin/dialog/uploadpdf/uploadpdf.component';
 import { CardSmallComponent } from './components/profile/card-small/card-small.component';
+
 
 //config
 
@@ -69,10 +66,6 @@ import { CardSmallComponent } from './components/profile/card-small/card-small.c
     DashboardComponent,
     SignupComponent,
     ToolbarComponent,
-    ManagersinfoComponent,
-    ReadersinfoComponent,
-    DevinfoComponent,
-    TestpageComponent,
     ProfileComponent,
     ProfileupdateComponent,
     AdminComponent,
@@ -97,7 +90,6 @@ import { CardSmallComponent } from './components/profile/card-small/card-small.c
     HttpClientModule,
     PdfViewerModule,
     FormsModule,
-    NoopAnimationsModule,
     MatSlideToggleModule,
     MatCardModule,
     ReactiveFormsModule,

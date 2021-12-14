@@ -5,23 +5,9 @@
     </button>
     <app-toolbar></app-toolbar>
   </mat-toolbar>
+
   <mat-drawer #drawer class="example-sidenav" mode="over">
-    
     <div class="container">
-      <div *ngIf="auth.user$ | async; then authenticated else guest">
-        <!-- template will replace this div -->
-      </div>
-        <ng-template #guest>
-          <p>are not logged on!!!</p>
-        </ng-template>
-        <ng-template #authenticated>
-      
-          <app-card-small></app-card-small>
-        
-
-      </ng-template>
-
-
       <div class="row">
         <button class="btnc" mat-raised-button  [routerLink]="['/']" routerLinkActive="router-link-active">Home</button>
       </div>
@@ -29,18 +15,9 @@
         <button class="btnc" mat-raised-button [routerLink]="['/search']" routerLinkActive="router-link-active">Search</button>
       </div>
       <div class="row">
-        <button class="btnc" mat-raised-button  [routerLink]="['/info']" routerLinkActive="router-link-active">Information</button>
+        <button class="btnc" mat-raised-button  [routerLink]="['/info']" routerLinkActive="router-link-active">Get Test (Not using Service)</button>
       </div>
       <div class="text">
-        <p>
-          Below are test views
-        </p>
-      </div>
-      <div class="row">
-        <button class="btnc" mat-raised-button [routerLink]="['/pdfview']" routerLinkActive="router-link-active">Document Viewer</button>
-      </div>
-      <div class="row">
-        <button class="btnc" mat-raised-button [routerLink]="['/docinfo']" routerLinkActive="router-link-active">Document Information</button>
       </div>
     </div>
   </mat-drawer>

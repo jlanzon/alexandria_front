@@ -15,4 +15,5 @@ export interface User {
     topRole?: string;
     verified?: boolean;
     photoURL?: string;
+    Bio?: string;
 }
