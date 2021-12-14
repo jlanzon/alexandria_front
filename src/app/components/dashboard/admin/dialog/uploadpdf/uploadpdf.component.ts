@@ -5,6 +5,7 @@ import { AdminComponent, DialogData, PFDUploadData } from '../../admin.component
 import { AuthService } from 'src/app/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { switchMap, first, map } from 'rxjs/operators';
@@ -20,6 +21,7 @@ import { Router } from '@angular/router';
 export class UploadpdfComponent implements OnInit {
 
   tags: string
+  TxtError: any = ""
   user = this.auth.getUser()  
   documentCollection: AngularFirestoreCollection<any>;
 
@@ -27,6 +29,7 @@ export class UploadpdfComponent implements OnInit {
   success = false
 
   userdata: any 
+  
 
   // uploaderEMAIL: 
   // uploaderNAME: undefined
@@ -40,7 +43,8 @@ export class UploadpdfComponent implements OnInit {
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private router: Router,
-    public auth: AuthService
+    public auth: AuthService,
+    private http: HttpClient
     ) {
 
       
@@ -50,27 +54,39 @@ export class UploadpdfComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // async getUserData(){
-  //   this.afAuth.user.subscribe((x) => this.email = x.email)
-  //   this.afAuth.user.subscribe((x) => this.uid = x.uid)
-  //   this.afAuth.user.subscribe((x) => this.name = x.displayName)
-  //   console.log("working")
-  // }
 
- async onSubmit(datauploadpdf) {
-   this.loading = true;
-   const formValue = this.data
-   formValue.uploaderEMAIL = this.userdata.email
-   formValue.uploaderUID = this.userdata.uid
-   formValue.uploaderNAME = this.userdata.displayname
-   try {
-     await this.afs.collection('documents').add(formValue);
-     this.success = true
-   } catch (error) {
-     console.log(error)
-     console.log(formValue, )
-   }
-  }
+//  async onSubmit() {
+//    this.loading = true;
+//    const formValue = this.data
+//    formValue.uploadedBy = this.userdata.displayname
+//    try {
+//      await this.afs.collection('documents').add(formValue);
+//      this.success = true
+//      this.dialogRef.close();
+//    } catch (error) {
+//      this.TxtError = error
+//      console.log(error)
+//      console.log(formValue, )
+//    }
+//   }
+
+async onSubmit(datauploadpdf) {
+     this.loading = true;
+     const formValue = this.data
+     formValue.uploadedBy = this.userdata.displayname
+     try {
+       await this.http.post("https://alexandria-back.herokuapp.com/publications", formValue).subscribe()
+       this.success = true
+       this.dialogRef.close();
+       console.log(formValue);
+       
+     } catch (error) {
+       this.TxtError = error
+       console.log(error)
+       console.log(formValue, )
+     }
+    }
+
 
   ngOnInit(): void {
     this.user.then(x => {this.userdata = x})

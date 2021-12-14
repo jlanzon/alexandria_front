@@ -4,9 +4,12 @@
 <h1> Get resquest info</h1>
 
 
-<button mat-raised-button color="primary" (click)="showGet()">Primary</button>
+<button mat-raised-button color="primary" (click)="showGet()">Get</button>
 
 
-<div class="shadow p-3 mb-5 bg-body rounded">{{data?.data?.msg | json}}</div>
+<div class="shadow p-3 mb-5 bg-body rounded">{{data| json}}</div>
+
+
+<button mat-raised-button color="primary" (click)="testPost()">Post</button>
 
 

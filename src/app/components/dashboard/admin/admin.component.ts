@@ -16,14 +16,20 @@ export interface DialogData {
 }
 
 export interface PFDUploadData {
-  pdfName: string;
-  link: string;
-  serviceUploader: string;
-  description: string;
-  tags: any;
-  uploaderUID: string;
-  uploaderEMAIL: string;
-  uploaderNAME: string;
+  uploaderNAME: any;
+  title: string,
+  uploadedBy: string,
+  tlb: string,
+  url: string,
+  shortDesc: string,
+  reviewDate: Date,
+  dateRecordCreated: Date,
+  dateRecordUpdated:Date,
+  datePublicationCreated:Date,
+  datePublicationUpdated:Date,
+  state: string,
+  classification: string,
+  processedPublicationObject:string,
 }
 
 @Component({
@@ -33,53 +39,67 @@ export interface PFDUploadData {
 })
 export class AdminComponent implements OnInit {
 
-  user = AuthService
+  user = this.auth.getUser()
   userCollection: AngularFirestoreCollection<User>
   users: Observable<any[]>
   documentCollection: AngularFirestoreCollection<documents>
   documents: Observable<any[]>
   test: any
-
   animal: string;
   name: string;
-
-
+  //get top role 
+  userCurrent = this.auth.getUser()
+  role: any
   // pdf upload 
-  pdfName: string;
-  link: string;
-  serviceUploader: string;
-  description: string;
+  uploaderNAME: any;
+  title: string
+  uploadedBy: string
+  tlb: string
+  url: string
+  shortDesc: string
+  reviewDate: Date
+  dateRecordCreated: Date
+  dateRecordUpdated:Date
+  datePublicationCreated:Date
+  datePublicationUpdated:Date
+  state: string
+  classification: string
+  processedPublicationObject:string
   // tags: any;
-  uploaderUID: string;
-  uploaderEMAIL: string;
-  uploaderNAME: string;
   datapass: any;
 
   constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore, public dialog: MatDialog) {}
 
-
+  topRole(){
+    const testitem = this.userCurrent.then(x => {return x})
+    console.log(testitem, this.role)
+  }
+  
   //dialog stuff here 
   openDialog(): void {
     const dialogRef = this.dialog.open(UploadpdfComponent, {
       width: '50vw',
       data: {
-        pdfName: this.pdfName,
-        link: this.link,
-        serviceUploader: this.serviceUploader,
-        description: this.description,
-        // tags:this.tags,
-        uploaderUID: this.uploaderUID,
-        uploaderEMAIL:this.uploaderEMAIL,
-        uploaderNAME: this.uploaderNAME
+        // start
+        title: this.title,
+        uploadedBy: this.uploaderNAME,
+        tlb: this.tlb,
+        url: this.url,
+        shortDesc: this.shortDesc,
+        reviewDate: this.reviewDate
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      this.pdfName = result;
+      this.title = result;
     });
   }
   //end dialog 
+
+  removeData(){
+    console.log("not working untill Mongo is working")
+  }
 
   ngOnInit(): void {
     this.userCollection = this.afs.collection('users')
@@ -91,9 +111,9 @@ export class AdminComponent implements OnInit {
     // })
 
     // this.test = this.afAuth.user.subscribe(x => {console.log(x.uid)})
-    console.log(this.test)
-    this.documentCollection = this.afs.collection('documents')
-    this.documents = this.documentCollection.valueChanges()
+    this.user.then(x => {this.role = x})
+
+    this.topRole()
 
   }
 }

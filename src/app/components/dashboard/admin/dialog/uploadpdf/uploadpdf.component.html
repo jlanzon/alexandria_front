@@ -21,26 +21,45 @@
                 </div>
             </ng-template>
           <label for="pdfname">PDF Name</label>
-          <input type="text" class="form-control" id="pdfName" name="pdfName" aria-describedby="pdfname" placeholder="Enter PDF Name" [(ngModel)]="data.pdfName" ngModel required>
+          <input type="text" class="form-control" id="title" name="title" aria-describedby="title" placeholder="Enter PDF Name" [(ngModel)]="data.title" ngModel required>
           <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
         <div class="form-group">
-          <label for="pdflink">Link</label>
-          <input type="text" class="form-control" id="pdflink" placeholder="example.com/pdf" [(ngModel)]="data.link" name="pdflink" required>
+          <label for="url">Link</label>
+          <input type="text" class="form-control" id="url" placeholder="example.com/pdf" [(ngModel)]="data.url" name="url" required>
         </div>
         <div class="form-group">
-            <label for="pdfname">Service</label>
-            <select class="form-control form-control-sm" [(ngModel)]="data.serviceUploader" name="serviceUploader" required>
+            <label for="tlb">Service</label>
+            <select class="form-control form-control-sm" [(ngModel)]="data.tlb" name="tlb" required>
                 <option selected disabled>Please Select</option>
+                <option>MOD</option>
                 <option>Royal Air Force</option>
                 <option>Royal Navy</option>
                 <option>Army</option>
             </select>
         </div>
         <div class="form-group">
+          <label for="tlb">Classification</label>
+          <select class="form-control form-control-sm" [(ngModel)]="data.classification" name="classification" required>
+              <option selected disabled>Please Select</option>
+              <option>Unclass</option>
+              <option>Official</option>
+              <option>Official Sensitive </option>
+          </select>
+      </div>
+        
+        <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please enter a Description on your PDF" [(ngModel)]="data.description" name="description" required></textarea>  
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please enter a Description on your PDF" [(ngModel)]="data.shortDesc" name="shortDesc" required></textarea>  
         </div>
+
+        <div>
+          <label for="reviewDate">Review Date</label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="data.reviewDate" name="reviewDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+        
             <!-- <label class="sr-only" for="inlineFormInputGroup">Tags</label>
             <div class="input-group mb-2">
               <div class="input-group-prepend">
@@ -55,6 +74,7 @@
         
       
     <!-- </div> -->
+    <h3>{{TxtError}}</h3>
         <div mat-dialog-actions class="actions">
         <button class="btn btn-success btn-block buttonedits" (click)="onNoClick()">No Thanks</button>
         <button class="btn btn-success btn-block buttonedits"  cdkFocusInitial>Ok</button>

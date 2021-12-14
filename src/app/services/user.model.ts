@@ -16,4 +16,5 @@ export interface User {
     verified?: boolean;
     photoURL?: string;
     Bio?: string;
+    Fav?: string
 }

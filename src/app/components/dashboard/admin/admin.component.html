@@ -46,7 +46,7 @@
               </div>
               <div class="stats">
                 <!-- <mat-card class="tableinsidestats"> -->
-                  <div *ngIf="user.role.admin == true" class="statsUpdate">
+                  <div class="statsUpdate">
                     <div>
                       <table class="content-table-stats">
                         <thead>
@@ -58,23 +58,26 @@
                             <th>serviceUploader</th>
                             <th>pdfName</th>
                             <th>LINK</th>
+                            <th> Delete</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let document of documents | async">
-                            <td>{{document.uploaderNAME}}</td>
+                            <td>{{user.email}}</td>
                             <td>{{document.uploaderEMAIL}}</td>
                             <td>{{document.uploaderUID}}</td>
                             <td>{{document.description}}</td>
                             <td>{{document.serviceUploader}}</td>
                             <td>{{document.pdfName}}</td>
                             <td><p class="link"><a href="{{document.link}}">LINK</a></p></td>
+                            <td><button class="btn btn-success btn-block"(click)=removeData()>Delete</button></td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
                 <!-- </mat-card> -->
+                
               </div>
             </div>
           </div>

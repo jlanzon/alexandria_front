@@ -1,8 +1,9 @@
 <div class="search">
   <h1 class="text ">Documents Search...</h1>
-  <form class="form-floating mb-3 searchbar">
-    <input type="text" class="form-control searchbartext" id="floatingInput">
-   <label for="floatingInput">{{ document }} search</label>
+  <form #f="ngForm" (ngSubmit)="searchTerm(f)" novalidate>
+    <input  class="form-control searchbartext" name="searchTerm" ngModel required #first="ngModel">
+    <button class="btn btn-success btn-block buttonedits">Search</button>
+   <!-- <label for="floatingInput">{{ document }} search</label> -->
   </form>
 </div>
 <div class="results">
@@ -28,25 +29,27 @@
   </mat-card> -->
       <table class="content-table">
         <thead>
-          <tr>
-            <th>uploaderNAME</th>
-            <th>EMAIL</th>
-            <th>UID</th>
-            <th>description</th>
-            <th>serviceUploader</th>
-            <th>pdfName</th>
-            <th>LINK</th>
+          <tr>                        
+            <th>Title</th>
+            <th>Upload Date</th>
+            <th>Last Updated</th>
+            <th>Classification</th>
+            <th>Favorite</th>
+            <th>Link</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let document of documents | async">
-            <td>{{document.uploaderNAME}}</td>
-            <td>{{document.uploaderEMAIL}}</td>
-            <td>{{document.uploaderUID}}</td>
-            <td>{{document.description}}</td>
-            <td>{{document.serviceUploader}}</td>
-            <td>{{document.pdfName}}</td>
-            <td><p class="link"><a href="{{document.link}}">LINK</a></p></td>
+          <tr *ngFor="let document of data ">
+            <td> {{document._id}}</td>
+            <td> {{document.datePublicationCreated}}</td>
+            <td> {{document.datePublicationUpdated}}</td>
+            <td> {{document.classification}}</td>
+            <td>
+              <button mat-raised-button color="accent" (click)="addFav(document._id)">Add To Favorites</button>                         
+            </td>
+            <td>
+              <a mat-raised-button color="primary" href="{{document.url}}">Link</a>                        
+            </td>
           </tr>
         </tbody>
       </table>

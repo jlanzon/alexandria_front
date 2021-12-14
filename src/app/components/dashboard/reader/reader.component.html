@@ -8,31 +8,47 @@
     <div class="dashboard">
       <div *ngIf="auth.user$ | async as user">
       <div class="top">
-        <app-card></app-card>
-        <div class="users">
-          <!-- <mat-card class="tableinside"> -->
-              <div *ngIf="user.role.admin == true" class="userUpdate">
-                <div>
-                  <h2 class="comingSoon">Somthing here soon</h2>
-                </div>
+        <div class="users">          
+              <div class="topbar">
+                  <h2 style="text-align: center;"  *ngIf="auth.user$ | async as user">{{user.displayname}}` Favorites: </h2>
+                  <table class="content-table">
+                    <thead>
+                      <tr>                        
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Upload Date</th>
+                        <th>Last Updated</th>
+                        <th>Classification</th>
+                        <th>Favorite</th>
+                        <th>Link</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let document of users | async">
+                        <td>1</td>
+                        <td> {{user.Fav}}`</td>
+                        <td> {{document.datePublicationCreated}}</td>
+                        <td> {{document.datePublicationUpdated}}</td>
+                        <td> {{document.classification}}</td>
+                        <td>
+                          <button mat-raised-button color="warn" (click)="removeFav()">Remove</button>                         
+                        </td>
+                        <td>
+                          <a mat-raised-button color="primary" href="{{document.link}}">Link</a>                        
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>                
               </div>
-            <!-- </mat-card> -->
         </div>
-        </div>
+        
+      </div>
         <div class="documents">
             <div class="uploads">
+              <button class="btn btn-success btn-block fillupload" (click)="openDialog()">Upload Document</button>
               <button class="btn btn-success btn-block fillupload" [routerLink]="['/search']">Search MOD Docs</button>
               <button class="btn btn-success btn-block fillupload disabled">Ask a Question </button>
-              <button class="btn btn-success btn-block fillupload "  [routerLink]="['/info/readersinfo']">My FAQ</button>
-            </div>
-            <div class="stats">
-              <!-- <mat-card class="tableinsidestats"> -->
-                <div *ngIf="user.role.admin == true" class="statsUpdate">
-                  <div>
-                    <h2>Somthing here soon</h2>
-                  </div>
-                </div>
-              <!-- </mat-card> -->
+              <button class="btn btn-success btn-block fillupload disabled">My FAQ</button>
             </div>
           </div>
         </div>

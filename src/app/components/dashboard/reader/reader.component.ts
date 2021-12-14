@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -28,38 +29,61 @@ export class ReaderComponent implements OnInit {
 
 
   // pdf upload 
-  pdfName: string;
-  link: string;
-  serviceUploader: string;
-  description: string;
-  // tags: any;
-  uploaderUID: string;
-  uploaderEMAIL: string;
-  uploaderNAME: string;
-  datapass: any;
+  uploaderNAME: any;
+  title: string
+  uploadedBy: string
+  tlb: string
+  url: string
+  shortDesc: string
+  reviewDate: Date
+  dateRecordCreated: Date
+  dateRecordUpdated:Date
+  datePublicationCreated:Date
+  datePublicationUpdated:Date
+  state: string
+  classification: string
+  processedPublicationObject:string
 
-  constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore, public dialog: MatDialog) {}
+  x = "https://alexandria-back.herokuapp.com/publications"
+  data: any = [{"temp": "temp"}]
 
+  constructor(public afAuth: AngularFireAuth, public auth: AuthService, public afs: AngularFirestore, public dialog: MatDialog, private http: HttpClient) {}
+
+  removeFav(){
+    console.log("Remove does not work yet (Pending Mongo)")
+  }
+
+  showGet(){
+    return this.http.get(this.x).subscribe((x: any) =>this.data = x).add(() => { return this.data})
+  }
 
   //dialog stuff here 
   openDialog(): void {
     const dialogRef = this.dialog.open(UploadpdfComponent, {
       width: '50vw',
       data: {
-        pdfName: this.pdfName,
-        link: this.link,
-        serviceUploader: this.serviceUploader,
-        description: this.description,
-        // tags:this.tags,
-        uploaderUID: this.uploaderUID,
-        uploaderEMAIL:this.uploaderEMAIL,
-        uploaderNAME: this.uploaderNAME
+        // start
+        title: this.title,
+        uploadedBy: this.uploaderNAME,
+        tlb: this.tlb,
+        url: this.url,
+        shortDesc: this.shortDesc,
+        reviewDate: this.reviewDate,
+        dateRecordCreated: Date(),
+        dateRecordUpdated: "Not Updated Yet",
+        datePublicationCreated: Date(),
+        datePublicationUpdated:"Not Updated Yet",
+        state: "pending",
+        classification: "Unclass",
+        processedPublicationObject: "?",
+        
+        // End
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      this.pdfName = result;
+      this.title = result;
     });
   }
   //end dialog 
@@ -77,6 +101,7 @@ export class ReaderComponent implements OnInit {
     console.log(this.test)
     this.documentCollection = this.afs.collection('documents')
     this.documents = this.documentCollection.valueChanges()
+    this.showGet()
 
   }
 

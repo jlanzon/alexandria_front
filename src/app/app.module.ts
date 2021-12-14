@@ -10,7 +10,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { InfoComponent } from './components/info/info.component';
 import {MatIconModule} from '@angular/material/icon';
-import {MatCommonModule, MatRippleModule} from '@angular/material/core';
+import {MatCommonModule, MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import { DocumentinfoComponent } from './components/documentinfo/documentinfo.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -25,6 +25,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
@@ -75,6 +76,7 @@ import { CardSmallComponent } from './components/profile/card-small/card-small.c
     CardSmallComponent,
     
     
+    
   ],
   imports: [
     BrowserModule,
@@ -99,6 +101,8 @@ import { CardSmallComponent } from './components/profile/card-small/card-small.c
     MatDialogModule,
     MatRippleModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     //firestore
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore

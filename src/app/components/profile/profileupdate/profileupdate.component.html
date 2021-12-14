@@ -8,7 +8,7 @@
         <mat-card class="example-card">
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title >{{user.email}}<span *ngIf="user.verified == true"><mat-icon  color="primary">verified</mat-icon></span></mat-card-title>
+              <mat-card-title >{{user.email}}</mat-card-title>
               <mat-card-subtitle>Welcome, {{user.rank}} {{user.displayname}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
@@ -16,67 +16,12 @@
                     <p>Rank: {{user.rank}}</p> 
                     <p>UID: {{user.uid}}</p>
                     <p>EMAIL: {{user.email}}</p>
-                    <p>reader {{user.role.reader}}</p>
-                    <p>publisher {{user.role.publisher}}</p>
-                    <p>manager {{user.role.manager}}</p>
-                    <p>developer {{user.role.developer}}</p>
-                    <p>admin {{user.role.admin}}</p>
-                <div *ngIf="user.role.admin == true" class="userUpdate">
-                    <div class="userAttribute">
-                        <p class="userAttributetext">Working {{user.displayname}}</p> 
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">Rank: {{user.rank}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button> 
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">UID: {{user.uid}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">EMAIL: {{user.email}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>{{iconon}}</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">reader {{user.role.reader}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">publisher {{user.role.publisher}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">manager {{user.role.manager}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">developer {{user.role.developer}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                    <div class="userAttribute">
-                        <p class="userAttributetext">admin {{user.role.admin}}</p>
-                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
-                            <mat-icon>favorite</mat-icon>
-                        </button>
-                    </div>
-                </div>
+                    <p>Bio: {{user.Bio}}</p>
+                    <p>reader: {{user.role.reader}}</p>
+                    <p>publisher: {{user.role.publisher}}</p>
+                    <p>manager: {{user.role.manager}}</p>
+                    <p>developer: {{user.role.developer}}</p>
+                    <p>admin: {{user.role.admin}}</p>
                 </mat-card>
             </mat-card-content>
             
