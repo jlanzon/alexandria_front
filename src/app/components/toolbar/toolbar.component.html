@@ -1,5 +1,6 @@
 <div class="toolbar">
   <h1>Project Alexandria</h1>
+  <!-- Logged out users will see this -->
   <div class="profile" *ngIf="!(afAuth.user | async)">
     <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
@@ -7,9 +8,11 @@
     <mat-menu class="menu" #menu="matMenu" >
       <button mat-menu-item [routerLink]="['/login']" routerLinkActive="router-link-active">Log in</button>
       <button mat-menu-item [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign Up</button>
-      <mat-slide-toggle>Dark Mode</mat-slide-toggle>
     </mat-menu>
   </div>
+  <!-- End -->
+
+  <!-- Logged in user will see this -->
   <div class="profile" *ngIf="(afAuth.user | async)">    
     <button mat-mini-fab color="primary" class="fab" aria-label="Example icon button with a delete icon" [matMenuTriggerFor]="menu">
       <mat-icon>account_circle</mat-icon>
@@ -22,6 +25,7 @@
       <button mat-menu-item (click)="logOut()">Log out</button>
     </span>
     </mat-menu>
+    <!-- End -->
   
   </div>
 </div>

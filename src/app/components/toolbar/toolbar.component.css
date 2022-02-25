@@ -5,12 +5,15 @@
 
 .profile{
   right: 0;
+  top:1px;
   position: absolute;
   margin-right: 2%;
 }
 .fab{
+  /* height: 20px;
+  width: auto; */
   margin-right: 3%;
-  background-color: #009879 ;
+  background-color: #33466E ;
   color: white;
 }
 

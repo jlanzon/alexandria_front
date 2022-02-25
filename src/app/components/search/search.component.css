@@ -5,7 +5,26 @@
 }
 
 .searchbartext{
-  border-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border-bottom-left-radius: 2rem;
+}
+.searchContiner{
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.searchform{
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 .text{
   text-align: center;
@@ -68,14 +87,14 @@
   min-width: 400px;
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px #333F48;
   width: 80vw;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
 }
 
 .content-table thead tr {
-  background-color: #009879;
+  background-color: #333F48;
   color: #ffffff;
   text-align: left;
   font-weight: bold;
@@ -95,12 +114,12 @@
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #C9D0D7;
 }
 
 .content-table tbody tr.active-row {
   font-weight: bold;
-  color: #009879;
+  color: #333F48;
 }
 
 .link{

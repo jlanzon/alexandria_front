@@ -1,32 +1,14 @@
 <div class="search">
   <h1 class="text ">Documents Search...</h1>
-  <form #f="ngForm" (ngSubmit)="searchTerm(f)" novalidate>
-    <input  class="form-control searchbartext" name="searchTerm" ngModel required #first="ngModel">
-    <button class="btn btn-success btn-block buttonedits">Search</button>
-   <!-- <label for="floatingInput">{{ document }} search</label> -->
+  <form #f="ngForm" (ngSubmit)="searchTerm(f)" novalidate class="searchContiner">
+    <div class="searchform">
+      <input  class="form-control searchbartext" name="searchTerm" ngModel required #first="ngModel">
+      <button class="btn btn-block buttonedits"  style="background-color: #19626A; color: white">Search</button>
+    </div>
+    
   </form>
 </div>
 <div class="results">
-  <!-- <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="RAF"></div>
-      <mat-card-title>JSP 834</mat-card-title>
-      <mat-card-subtitle>Safeguarding</mat-card-subtitle>
-    </mat-card-header>
-    <div class="pdfsmall">
-      <img mat-card-image [src]="pdfSrc" alt="JSP834">
-    </div>
-    <mat-card-content>
-      <p>
-        JSP 834 is intended as a comprehensive framework for the safeguarding of all People in Defence. It is the intention that this JSP will be reviewed every two years or in response to changes directed by Central Government policy.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button [routerLink]="['/pdfview']" routerLinkActive="router-link-active">VIEW</button>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->
       <table class="content-table">
         <thead>
           <tr>                        
@@ -40,15 +22,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let document of data ">
-            <td> {{document._id}}</td>
+            <td> {{document.title}}</td>
             <td> {{document.datePublicationCreated}}</td>
-            <td> {{document.datePublicationUpdated}}</td>
+            <td> {{document.user}}</td>
             <td> {{document.classification}}</td>
             <td>
-              <button mat-raised-button color="accent" (click)="addFav(document._id)">Add To Favorites</button>                         
+              <button mat-raised-button style="background-color: #ffc845; color: black" (click)="addFav(document._id)">Add To Favorites</button>                         
             </td>
             <td>
-              <a mat-raised-button color="primary" href="{{document.url}}">Link</a>                        
+              <a mat-raised-button style="background-color: #19626A; color: white" href="{{document.url}}">Link</a>                        
             </td>
           </tr>
         </tbody>
